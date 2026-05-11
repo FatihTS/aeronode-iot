@@ -78,24 +78,38 @@ export default function IoTLandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-           [
-              "LoRaWAN Infrastructure",
-              "Embedded Firmware Development",
-              "Custom STM32 Solutions",
-              "Battery Powered Devices",
-              "Telemetry Platforms",
-              "RF & Wireless Systems",
-            ]
+              {
+                title: "LoRaWAN Infrastructure",
+                desc: "Long-range wireless telemetry and remote monitoring systems.",
+              },
+              {
+                title: "Embedded Firmware Development",
+                desc: "Low-power STM32 and embedded firmware solutions.",
+              },
+              {
+                title: "Custom STM32 Solutions",
+                desc: "Custom embedded hardware and firmware development.",
+              },
+              {
+                title: "Battery Powered Devices",
+                desc: "Efficient low-power battery operated IoT systems.",
+              },
+              {
+                title: "Telemetry Platforms",
+                desc: "Sensor data collection and remote telemetry infrastructure.",
+              },
+              {
+                title: "RF & Wireless Systems",
+                desc: "Wireless communication and RF based embedded products.",
+              },
             ].map((item) => (
               <div
-                key={item}
+                key={item.title}
                 className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-emerald-500/40 transition"
               >
-                <h3 className="text-xl font-semibold">{item}</h3>
-                <p className="mt-3 text-zinc-400">
-                  Professional development focused on reliability, low power,
-                  and scalable deployment.
-                </p>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+
+                <p className="mt-3 text-zinc-400">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -103,7 +117,10 @@ export default function IoTLandingPage() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="border-t border-white/10 bg-white/[0.02]">
+      <section
+        id="projects"
+        className="border-t border-white/10 bg-white/[0.02]"
+      >
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="max-w-2xl mb-14">
             <h2 className="text-4xl font-bold">Projects</h2>
@@ -115,20 +132,16 @@ export default function IoTLandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {[
               {
+                title: "Smart Barn Monitoring System",
+                desc: "Wireless livestock and barn monitoring platform with environmental sensing, telemetry infrastructure and low-power embedded hardware.",
+              },
+              {
                 title: "Solar Telemetry Node",
                 desc: "Low-power solar powered remote monitoring system with wireless telemetry.",
               },
               {
-              title: "Smart Barn Monitoring System",
-               desc: "Remote livestock and barn monitoring with wireless telemetry, environmental sensing and battery-powered embedded hardware.",
-              },
-              {
                 title: "LoRaWAN Gateway System",
                 desc: "Custom gateway infrastructure and remote sensor communication.",
-              },
-              {
-                title: "GPS Tracking Platform",
-                desc: "Battery-efficient asset tracking and cloud telemetry architecture.",
               },
               {
                 title: "Flight Computer",
@@ -166,7 +179,7 @@ export default function IoTLandingPage() {
 
           <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:info@yourdomain.com"
+              href="mailto:info@aeronodeiot.com"
               className="rounded-2xl bg-emerald-500 px-6 py-3 text-black font-semibold hover:bg-emerald-400 transition"
             >
               info@aeronodeiot.com
