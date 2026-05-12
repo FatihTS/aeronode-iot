@@ -422,10 +422,6 @@ export default function IoTLandingPage() {
           <div className="space-y-4">
             {[
               {
-                soru: "Kurulum zor mu? Elektrikçi gerekir mi?",
-                cevap: "Hayır. Cihazı kutusundan çıkarıp belirlediğiniz noktaya sabitlersiniz — duvar, direk ya da depo kenarı. Elektrik kablosu yok, internet kablosu yok. Pili takınca çalışmaya başlar.",
-              },
-              {
                 soru: "Çiftliğimin olduğu yerde telefon sinyali çok kötü. Çalışır mı?",
                 cevap: "Evet. Cihazlarımız telefon şebekesini kullanmaz — kendi radyo sinyalini üretir. LoRa teknolojisi, GSM kulesinin olmadığı yerlerde bile 10 km'ye kadar çalışır.",
               },
