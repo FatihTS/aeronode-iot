@@ -436,8 +436,8 @@ export default function IoTLandingPage() {
           </div>
 
           <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
-            <a href="mailto:info@kargu.com.tr" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
-              info@kargu.com.tr
+            <a href="mailto:aeronode.iot@gmail.com" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
+              aeronode.iot@gmail.com
             </a>
             <a href="https://github.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
               GitHub
