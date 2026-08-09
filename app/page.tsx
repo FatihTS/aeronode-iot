@@ -4,7 +4,7 @@ import EagleEyeHero from "./components/EagleEyeHero";
 
 export default function IoTLandingPage() {
   return (
-    <div className="relative min-h-screen bg-black/65 text-white">
+    <div className="relative min-h-dvh bg-black/65 text-white">
 
       <EagleEyeHero />
 

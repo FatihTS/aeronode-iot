@@ -58,7 +58,7 @@ export default function EagleEyeHero() {
   const cueHidden = revealed || scrolled;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative h-dvh w-full overflow-hidden bg-black">
       {reduceMotion ? (
         <Image
           src="/hero-poster.png"

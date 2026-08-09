@@ -54,7 +54,7 @@ const etiketRengi: Record<string, string> = {
 
 export default function ProjelerPage() {
   return (
-    <div className="min-h-screen bg-black/65 text-white">
+    <div className="min-h-dvh bg-black/65 text-white">
 
       {/* Başlık */}
       <section className="border-b border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent">

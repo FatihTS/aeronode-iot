@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function GunesTelemetriPage() {
   return (
-    <div className="min-h-screen bg-black/65 text-white">
+    <div className="min-h-dvh bg-black/65 text-white">
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">

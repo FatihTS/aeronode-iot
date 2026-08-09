@@ -13,7 +13,7 @@ const kartRengi: Record<string, string> = { orange: "border-orange-500/20 bg-ora
 
 export default function AkilliTarimPage() {
   return (
-    <div className="min-h-screen bg-black/65 text-white">
+    <div className="min-h-dvh bg-black/65 text-white">
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">
