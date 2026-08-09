@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function GunesTelemetriPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black/65 text-white">
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">
@@ -108,7 +108,7 @@ export default function GunesTelemetriPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-mono" style={{ background: "#141416", color: "#71717a" }}>
                   <span style={{ color: "#22c55e", fontSize: "10px" }}>●</span>
-                  aeronodeiot.com/dashboard/telemetri
+                  kargu.com.tr/panel/telemetri
                 </div>
               </div>
 
@@ -120,10 +120,10 @@ export default function GunesTelemetriPage() {
                   <div className="px-4 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "rgba(234,179,8,0.15)", border: "1px solid rgba(234,179,8,0.3)" }}>
-                        <span className="text-[11px] font-bold text-yellow-400">AN</span>
+                        <span className="text-[11px] font-bold text-yellow-400">K</span>
                       </div>
                       <div>
-                        <p className="text-[11px] font-bold text-white">AeroNode</p>
+                        <p className="text-[11px] font-bold text-white">Kargu</p>
                         <div className="flex items-center gap-1 mt-0.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
                           <p className="text-[9px] text-zinc-500">4 düğüm aktif</p>
@@ -338,7 +338,7 @@ export default function GunesTelemetriPage() {
                   {/* App header */}
                   <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ background: "#111113", borderColor: "rgba(255,255,255,0.06)" }}>
                     <div>
-                      <p className="text-[9px] uppercase tracking-widest" style={{ color: "#3f3f46" }}>AeroNode IoT</p>
+                      <p className="text-[9px] uppercase tracking-widest" style={{ color: "#3f3f46" }}>Kargu Teknoloji</p>
                       <p className="text-[13px] font-bold text-white">Kuzey Geçidi</p>
                     </div>
                     <div className="flex items-center gap-1.5 rounded-lg px-2 py-1" style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.22)" }}>
@@ -498,7 +498,7 @@ export default function GunesTelemetriPage() {
           size en uygun sistemi tasarlayalım.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#iletisim" className="rounded-2xl bg-emerald-500 px-7 py-3 text-black font-semibold hover:bg-emerald-400 transition">Teklif Al</Link>
+          <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
           <Link href="/projeler" className="rounded-2xl border border-white/20 px-7 py-3 hover:bg-white/5 transition">Diğer Projelere Bak</Link>
         </div>
       </section>

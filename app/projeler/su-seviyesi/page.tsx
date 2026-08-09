@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SuSeviyesiPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black/65 text-white">
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">
@@ -212,7 +212,7 @@ export default function SuSeviyesiPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-mono" style={{ background: "#141416", color: "#71717a" }}>
                   <span style={{ color: "#22c55e", fontSize: "10px" }}>●</span>
-                  aeronodeiot.com/dashboard/su-yonetimi
+                  kargu.com.tr/panel/su-yonetimi
                 </div>
               </div>
 
@@ -224,10 +224,10 @@ export default function SuSeviyesiPage() {
                   <div className="px-4 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.3)" }}>
-                        <span className="text-[11px] font-bold text-blue-400">AN</span>
+                        <span className="text-[11px] font-bold text-blue-400">K</span>
                       </div>
                       <div>
-                        <p className="text-[11px] font-bold text-white">AeroNode</p>
+                        <p className="text-[11px] font-bold text-white">Kargu</p>
                         <div className="flex items-center gap-1 mt-0.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
                           <p className="text-[9px] text-zinc-500">Canlı bağlantı</p>
@@ -423,7 +423,7 @@ export default function SuSeviyesiPage() {
                   {/* App header */}
                   <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ background: "#111113", borderColor: "rgba(255,255,255,0.06)" }}>
                     <div>
-                      <p className="text-[9px] uppercase tracking-widest" style={{ color: "#3f3f46" }}>AeroNode IoT</p>
+                      <p className="text-[9px] uppercase tracking-widest" style={{ color: "#3f3f46" }}>Kargu Teknoloji</p>
                       <p className="text-[13px] font-bold text-white">Su Yönetimi</p>
                     </div>
                     <div className="relative">
@@ -611,7 +611,7 @@ export default function SuSeviyesiPage() {
           Kaç depo veya kuyu olduğunu ve yaklaşık derinliğini söyleyin — size özel teklif hazırlayalım.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#iletisim" className="rounded-2xl bg-emerald-500 px-7 py-3 text-black font-semibold hover:bg-emerald-400 transition">Teklif Al</Link>
+          <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
           <Link href="/projeler" className="rounded-2xl border border-white/20 px-7 py-3 hover:bg-white/5 transition">Diğer Projelere Bak</Link>
         </div>
       </section>

@@ -1,50 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import EagleEyeHero from "./components/EagleEyeHero";
 
 export default function IoTLandingPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="relative min-h-screen bg-black/65 text-white">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-transparent" />
-
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 hidden lg:block pointer-events-none">
-          <div className="relative w-72 h-72 flex items-center justify-center">
-            <div className="absolute w-72 h-72 rounded-full border border-emerald-500/10" style={{ animation: "ping 3s ease-out infinite" }} />
-            <div className="absolute w-52 h-52 rounded-full border border-emerald-500/15" style={{ animation: "ping 3s ease-out 0.6s infinite" }} />
-            <div className="absolute w-36 h-36 rounded-full border border-emerald-500/25" style={{ animation: "ping 3s ease-out 1.2s infinite" }} />
-            <div className="relative w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-2xl">📡</div>
-          </div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 py-28">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1 text-sm text-emerald-300 mb-6 tracking-wide">
-              AERONODE IOT • KABLOSUZ SENSÖRLER • TELEMETRİ
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-              Çiftliğiniz
-              <span className="block text-emerald-400">uyurken siz de uyuyun.</span>
-            </h1>
-
-            <p className="mt-6 text-lg text-zinc-400 max-w-xl leading-relaxed">
-              Ahırınızı, kuyunuzu ve tarlanızı 7/24 izleyen kablosuz sensörler.
-              SIM kart gerekmez, aylık fatura yok, tek pille 5 yıla kadar çalışır.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="#nasil-calisir" className="rounded-2xl bg-emerald-500 px-6 py-3 text-black font-semibold hover:bg-emerald-400 transition">
-                Nasıl Çalışır?
-              </a>
-              <a href="#iletisim" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
-                Fiyat & Teklif Al
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EagleEyeHero />
 
       {/* Metrikler */}
       <section className="border-b border-white/10">
@@ -56,7 +18,7 @@ export default function IoTLandingPage() {
             { sayi: "0 ₺", acik: "Aylık abonelik ücreti" },
           ].map((m) => (
             <div key={m.sayi} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald-400">{m.sayi}</div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-400">{m.sayi}</div>
               <p className="mt-1 text-sm text-zinc-500">{m.acik}</p>
             </div>
           ))}
@@ -123,7 +85,7 @@ export default function IoTLandingPage() {
             </div>
             <h2 className="text-4xl font-bold leading-snug">
               SIM Kart Yok.<br />Aylık Fatura Yok.<br />
-              <span className="text-emerald-400">Sadece Sinyal.</span>
+              <span className="text-amber-400">Sadece Sinyal.</span>
             </h2>
             <p className="mt-5 text-zinc-400 text-lg leading-relaxed">
               Çoğu kablosuz cihaz telefonunuz gibi çalışır — SIM kart ister,
@@ -157,14 +119,14 @@ export default function IoTLandingPage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-emerald-500/30 bg-emerald-500/5 p-8 relative overflow-hidden">
-              <div className="absolute top-5 right-5 rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-400 font-semibold tracking-wide">
+            <div className="rounded-3xl border border-amber-400/30 bg-amber-400/5 p-8 relative overflow-hidden">
+              <div className="absolute top-5 right-5 rounded-full bg-amber-400/20 px-3 py-1 text-xs text-amber-400 font-semibold tracking-wide">
                 TEKNOLOJİMİZ
               </div>
               <div className="flex items-center gap-3 mb-7">
-                <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-xl">📡</div>
+                <div className="w-11 h-11 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-xl">📡</div>
                 <div>
-                  <p className="text-xs text-zinc-500 uppercase tracking-widest">AeroNode yöntemi</p>
+                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Kargu yöntemi</p>
                   <h3 className="font-semibold text-white mt-0.5">LoRa Kablosuz</h3>
                 </div>
               </div>
@@ -177,7 +139,7 @@ export default function IoTLandingPage() {
                   "Kurulumdan sonra bakım gerektirmez",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-zinc-200">
-                    <span className="text-emerald-400 shrink-0 mt-0.5 font-bold">✓</span>
+                    <span className="text-amber-400 shrink-0 mt-0.5 font-bold">✓</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -191,7 +153,7 @@ export default function IoTLandingPage() {
               { icon: "📶", title: "Sinyal Olmayan Yere de Gider", body: "LoRa radyo sinyali duvarları, tarlaları ve tepeleri aşar. Türkiye'nin dağlık ve kırsal bölgelerinde mobil şebeke olmasa da çalışır." },
               { icon: "💸", title: "Bir Kere Al, Sürekli Kullan", body: "Cihazı satın aldıktan sonra ek bir ödeme yoktur. SIM kart yok, veri paketi yok, ay sonunda sürpriz fatura yok." },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex gap-4 hover:border-emerald-500/30 transition">
+              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex gap-4 hover:border-amber-400/30 transition">
                 <div className="text-3xl shrink-0">{item.icon}</div>
                 <div>
                   <h4 className="font-semibold mb-1">{item.title}</h4>
@@ -360,7 +322,7 @@ export default function IoTLandingPage() {
                 Her biri gerçek bir soruna yanıt olarak tasarlandı.
               </p>
             </div>
-            <Link href="/projeler" className="hidden md:inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-emerald-400 transition">
+            <Link href="/projeler" className="hidden md:inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-amber-400 transition">
               Tümünü Gör →
             </Link>
           </div>
@@ -408,7 +370,7 @@ export default function IoTLandingPage() {
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold">{project.title}</h3>
                 <p className="mt-3 text-zinc-400 leading-relaxed">{project.desc}</p>
-                <p className="mt-4 text-sm text-zinc-600 group-hover:text-emerald-400 transition">Detayları gör →</p>
+                <p className="mt-4 text-sm text-zinc-600 group-hover:text-amber-400 transition">Detayları gör →</p>
               </Link>
             ))}
           </div>
@@ -474,8 +436,8 @@ export default function IoTLandingPage() {
           </div>
 
           <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
-            <a href="mailto:aeronode.iot@gmail.com" className="rounded-2xl bg-emerald-500 px-6 py-3 text-black font-semibold hover:bg-emerald-400 transition">
-              aeronode.iot@gmail.com
+            <a href="mailto:info@kargu.com.tr" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
+              info@kargu.com.tr
             </a>
             <a href="https://github.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
               GitHub

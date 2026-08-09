@@ -54,7 +54,7 @@ const etiketRengi: Record<string, string> = {
 
 export default function ProjelerPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black/65 text-white">
 
       {/* Başlık */}
       <section className="border-b border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent">
@@ -129,7 +129,7 @@ export default function ProjelerPage() {
             İhtiyacınızı anlatın — mevcut ürünlerimizi adapte eder ya da sıfırdan özel çözüm tasarlarız.
           </p>
           <div className="mt-8">
-            <Link href="/#iletisim" className="rounded-2xl bg-emerald-500 px-7 py-3 text-black font-semibold hover:bg-emerald-400 transition inline-block">
+            <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition inline-block">
               Bizimle Konuşun
             </Link>
           </div>
