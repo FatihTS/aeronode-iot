@@ -424,7 +424,7 @@ export default function AkilliTarimPage() {
                         <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: "#fde68a" }}>Otomasyon Tetiklendi</span>
                       </div>
                       <p className="text-[12px] leading-relaxed" style={{ color: "#d4d4d8" }}>
-                        Nem <span className="font-mono font-bold" style={{ color: "#fde047" }}>%76</span>'ya ulaştı.
+                        Nem <span className="font-mono font-bold" style={{ color: "#fde047" }}>%76</span>&apos;ya ulaştı.
                         Fan 1 ve Fan 2 otomatik açıldı.
                       </p>
                     </div>
@@ -796,7 +796,7 @@ export default function AkilliTarimPage() {
           Kaç hayvan, ne büyüklükte ahır olduğunu söyleyin — size özel kurulum planı ve fiyat teklifi hazırlayalım.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">
+          <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">
             Teklif Al
           </Link>
           <Link href="/projeler" className="rounded-2xl border border-white/20 px-7 py-3 hover:bg-white/5 transition">

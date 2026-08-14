@@ -41,7 +41,13 @@ export default function Navbar() {
             Projeler
           </Link>
           <Link
-            href="/#iletisim"
+            href="/hakkimizda"
+            className="px-3 py-2 rounded-xl hover:text-white hover:bg-white/5 transition"
+          >
+            Hakkımızda
+          </Link>
+          <Link
+            href="/iletisim"
             className="ml-2 px-4 py-2 rounded-xl border border-white/20 hover:text-white hover:bg-white/5 transition"
           >
             İletişim
@@ -82,7 +88,14 @@ export default function Navbar() {
             Projeler
           </Link>
           <Link
-            href="/#iletisim"
+            href="/hakkimizda"
+            className="px-3 py-2.5 rounded-xl hover:text-white hover:bg-white/5 transition"
+            onClick={() => setOpen(false)}
+          >
+            Hakkımızda
+          </Link>
+          <Link
+            href="/iletisim"
             className="mt-1 px-3 py-2.5 rounded-xl border border-white/20 text-center hover:text-white hover:bg-white/5 transition"
             onClick={() => setOpen(false)}
           >

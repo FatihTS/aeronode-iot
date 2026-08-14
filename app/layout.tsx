@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kargu Teknoloji — Kablosuz Sensör ve Telemetri Çözümleri",
-  description: "SIM kart gerektirmeyen, pille çalışan LoRa tabanlı kablosuz sensörler. Su seviyesi ölçümü ve uzaktan izleme çözümleri.",
+  title: {
+    default: "Kargu Teknoloji — Kablosuz Sensör ve Telemetri Çözümleri",
+    template: "%s — Kargu Teknoloji",
+  },
+  description: "SIM kart gerektirmeyen, pille yıllarca çalışan LoRa tabanlı kablosuz sensörler. Su seviyesi ölçümü, akıllı tarım ve uzaktan izleme çözümleri.",
+  keywords: [
+    "LoRa sensör",
+    "kablosuz telemetri",
+    "su seviyesi ölçümü",
+    "akıllı tarım",
+    "uzaktan izleme",
+    "IoT Türkiye",
+    "Kargu Teknoloji",
+  ],
+  openGraph: {
+    title: "Kargu Teknoloji — Kablosuz Sensör ve Telemetri Çözümleri",
+    description: "SIM kart gerektirmeyen, pille yıllarca çalışan LoRa tabanlı kablosuz sensörler.",
+    locale: "tr_TR",
+    type: "website",
+    images: ["/hero-poster.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -49,7 +72,8 @@ export default function RootLayout({
           </div>
 
           <Navbar />
-          {children}
+          <main className="flex-1 flex flex-col">{children}</main>
+          <Footer />
         </body>
     </html>
   );

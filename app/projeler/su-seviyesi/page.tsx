@@ -290,7 +290,7 @@ export default function SuSeviyesiPage() {
                     <span className="w-2 h-2 rounded-full bg-red-400 shrink-0" style={{ animation: "pulse 1s ease-in-out infinite" }} />
                     <p className="text-[11px] flex-1" style={{ color: "#fca5a5" }}>
                       <span className="font-bold">Kritik Uyarı —</span>
-                      <span style={{ color: "rgba(252,165,165,0.7)" }}> Kuyu su seviyesi %18'e düştü. Pompa kuruya çekebilir!</span>
+                      <span style={{ color: "rgba(252,165,165,0.7)" }}> Kuyu su seviyesi %18&apos;e düştü. Pompa kuruya çekebilir!</span>
                       <span className="ml-2 font-mono" style={{ color: "rgba(252,165,165,0.3)", fontSize: "10px" }}>09:47</span>
                     </p>
                     <span className="text-[10px] px-2 py-0.5 rounded-lg shrink-0" style={{ color: "#71717a", border: "1px solid rgba(255,255,255,0.08)" }}>Kapat</span>
@@ -444,7 +444,7 @@ export default function SuSeviyesiPage() {
                         <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: "#fca5a5" }}>Kritik Seviye</span>
                       </div>
                       <p className="text-[12px] leading-relaxed" style={{ color: "#d4d4d8" }}>
-                        Kuyu <span className="font-mono font-bold" style={{ color: "#f87171" }}>%18</span>'e düştü. Pompa için yetersiz olabilir.
+                        Kuyu <span className="font-mono font-bold" style={{ color: "#f87171" }}>%18</span>&apos;e düştü. Pompa için yetersiz olabilir.
                       </p>
                     </div>
 
@@ -611,7 +611,7 @@ export default function SuSeviyesiPage() {
           Kaç depo veya kuyu olduğunu ve yaklaşık derinliğini söyleyin — size özel teklif hazırlayalım.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
+          <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
           <Link href="/projeler" className="rounded-2xl border border-white/20 px-7 py-3 hover:bg-white/5 transition">Diğer Projelere Bak</Link>
         </div>
       </section>

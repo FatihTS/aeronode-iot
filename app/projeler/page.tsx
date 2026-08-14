@@ -129,7 +129,7 @@ export default function ProjelerPage() {
             İhtiyacınızı anlatın — mevcut ürünlerimizi adapte eder ya da sıfırdan özel çözüm tasarlarız.
           </p>
           <div className="mt-8">
-            <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition inline-block">
+            <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition inline-block">
               Bizimle Konuşun
             </Link>
           </div>

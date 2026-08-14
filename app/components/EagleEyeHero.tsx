@@ -122,7 +122,7 @@ export default function EagleEyeHero() {
           Nasıl Çalışır?
         </a>
         <a
-          href="#iletisim"
+          href="/iletisim"
           className="rounded-2xl border border-white/20 px-6 py-3 text-white hover:bg-white/5 transition"
         >
           Fiyat & Teklif Al

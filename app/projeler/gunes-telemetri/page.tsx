@@ -498,7 +498,7 @@ export default function GunesTelemetriPage() {
           size en uygun sistemi tasarlayalım.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
+          <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition">Teklif Al</Link>
           <Link href="/projeler" className="rounded-2xl border border-white/20 px-7 py-3 hover:bg-white/5 transition">Diğer Projelere Bak</Link>
         </div>
       </section>

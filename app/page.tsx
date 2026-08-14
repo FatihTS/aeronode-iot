@@ -278,7 +278,7 @@ export default function IoTLandingPage() {
                 Akıllı Tarım
                 <span className="block text-emerald-400">Sensörü</span>
               </h2>
-              <p className="mt-2 text-zinc-500 text-xl font-light">Sabah 5'te ahıra gitme.</p>
+              <p className="mt-2 text-zinc-500 text-xl font-light">Sabah 5&apos;te ahıra gitme.</p>
 
               <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
                 Hayvancılıkta en büyük kayıplar gece olur — ısı stresi, nem artışı,
@@ -436,14 +436,11 @@ export default function IoTLandingPage() {
           </div>
 
           <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
-            <a href="mailto:aeronode.iot@gmail.com" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
+            <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
+              Teklif Formunu Doldurun
+            </Link>
+            <a href="mailto:aeronode.iot@gmail.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
               aeronode.iot@gmail.com
-            </a>
-            <a href="https://github.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
-              GitHub
-            </a>
-            <a href="https://linkedin.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
-              LinkedIn
             </a>
           </div>
         </div>
