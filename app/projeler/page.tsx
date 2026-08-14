@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Plant, Drop, Sun } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Projeler",
@@ -16,7 +17,7 @@ const projeler = [
     etiketler: ["Sıcaklık", "Nem", "Varlık Takibi", "Pil", "LoRa"],
     ozet: "Hayvancılıkta kayıpların büyük çoğunluğu gece olur. Sistem gece de uyanık — bir şey olduğunda sizi anında uyarır.",
     gradient: "from-emerald-500/25 to-teal-500/10",
-    ikon: "🌾",
+    Ikon: Plant,
     foto: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900&q=80&auto=format&fit=crop",
     fotoAlt: "Çiftlikteki inekler",
   },
@@ -28,7 +29,7 @@ const projeler = [
     etiketler: ["Kuyu", "Su Deposu", "Pil", "LoRa", "Anlık İzleme"],
     ozet: "Sulama mevsiminde kuyu bitmeden önce haberdar olun. ±1 cm hassasiyet, IP68 koruma, yıllarca pil ömrü.",
     gradient: "from-blue-500/25 to-cyan-500/10",
-    ikon: "💧",
+    Ikon: Drop,
     foto: null,
     fotoAlt: "",
   },
@@ -40,7 +41,7 @@ const projeler = [
     etiketler: ["Güneş Enerjisi", "Otonom", "LoRa", "Hava İstasyonu"],
     ozet: "Elektrik hattı olmayan her noktaya kurulur. Güneş ışığı yeterli — bakım için gitmek gerekmez.",
     gradient: "from-yellow-500/25 to-orange-500/10",
-    ikon: "☀️",
+    Ikon: Sun,
     foto: null,
     fotoAlt: "",
   },
@@ -99,7 +100,16 @@ export default function ProjelerPage() {
                   </>
                 ) : (
                   <div className={`h-full bg-gradient-to-br ${p.gradient} flex items-center justify-center`}>
-                    <span className="text-7xl">{p.ikon}</span>
+                    <p.Ikon
+                      size={64}
+                      weight="duotone"
+                      className={
+                        p.kategoriRenk === "emerald" ? "text-emerald-300" :
+                        p.kategoriRenk === "blue" ? "text-blue-300" :
+                        "text-yellow-300"
+                      }
+                      aria-hidden="true"
+                    />
                   </div>
                 )}
                 <div className="absolute bottom-4 left-4 z-10">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { List, X } from "@phosphor-icons/react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -62,7 +63,7 @@ export default function Navbar() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="text-xl leading-none">{open ? "✕" : "☰"}</span>
+          {open ? <X size={22} weight="bold" aria-hidden="true" /> : <List size={22} weight="bold" aria-hidden="true" />}
         </button>
       </div>
 

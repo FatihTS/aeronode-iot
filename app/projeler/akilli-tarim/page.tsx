@@ -1,6 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Thermometer,
+  Drop,
+  Eye,
+  BatteryFull,
+  Warning,
+  Check,
+  SquaresFour,
+  Target,
+  List,
+  Lightning,
+  Lightbulb,
+  ChartBar,
+  Gear,
+  Bell,
+  Fan,
+  Wind,
+  ClipboardText,
+  Cow,
+  Broadcast,
+  CellTower,
+  DeviceMobile,
+  Tag,
+  Package,
+  MapPin,
+  Hourglass,
+  ListNumbers,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Akıllı Tarım Sensörü",
@@ -8,10 +36,10 @@ export const metadata: Metadata = {
 };
 
 const sensorVerisi = [
-  { ikon: "🌡️", baslik: "Sıcaklık", deger: "24.5°C", alt: "Ahır içi — Normal", durum: "normal", renk: "orange", bar: 55 },
-  { ikon: "💧", baslik: "Nem", deger: "%68", alt: "Yüksek nem — Dikkat!", durum: "uyari", renk: "blue", bar: 68 },
-  { ikon: "👁️", baslik: "Varlık", deger: "12 / 14", alt: "2 hayvan ahır dışında", durum: "uyari", renk: "yellow", bar: 86 },
-  { ikon: "🔋", baslik: "Pil", deger: "%87", alt: "≈ 2 yıl kaldı", durum: "normal", renk: "emerald", bar: 87 },
+  { Ikon: Thermometer, baslik: "Sıcaklık", deger: "24.5°C", alt: "Ahır içi — Normal", durum: "normal", renk: "orange", bar: 55 },
+  { Ikon: Drop, baslik: "Nem", deger: "%68", alt: "Yüksek nem — Dikkat!", durum: "uyari", renk: "blue", bar: 68 },
+  { Ikon: Eye, baslik: "Varlık", deger: "12 / 14", alt: "2 hayvan ahır dışında", durum: "uyari", renk: "yellow", bar: 86 },
+  { Ikon: BatteryFull, baslik: "Pil", deger: "%87", alt: "≈ 2 yıl kaldı", durum: "normal", renk: "emerald", bar: 87 },
 ];
 
 const barRengi: Record<string, string> = { orange: "bg-orange-400", blue: "bg-blue-400", yellow: "bg-yellow-400", emerald: "bg-emerald-400" };
@@ -71,9 +99,10 @@ export default function AkilliTarimPage() {
             {sensorVerisi.map((s) => (
               <div key={s.baslik} className={`rounded-2xl border p-6 ${kartRengi[s.renk]}`}>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl">{s.ikon}</span>
-                  <span className={`text-xs ${s.durum === "uyari" ? "text-yellow-400" : "text-zinc-500"}`}>
-                    {s.durum === "uyari" ? "⚠ Dikkat" : "✓ Normal"}
+                  <s.Ikon size={26} weight="duotone" className="text-white/90" aria-hidden="true" />
+                  <span className={`inline-flex items-center gap-1 text-xs ${s.durum === "uyari" ? "text-yellow-400" : "text-zinc-500"}`}>
+                    {s.durum === "uyari" ? <Warning size={12} weight="bold" aria-hidden="true" /> : <Check size={12} weight="bold" aria-hidden="true" />}
+                    {s.durum === "uyari" ? "Dikkat" : "Normal"}
                   </span>
                 </div>
                 <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">{s.baslik}</p>
@@ -160,12 +189,12 @@ export default function AkilliTarimPage() {
                   {/* Nav */}
                   <div className="px-2 py-3 space-y-0.5 flex-1">
                     {[
-                      { ikon: "⊞", label: "Genel Bakış", aktif: false, badge: null },
-                      { ikon: "◎", label: "Sensörler", aktif: false, badge: null },
-                      { ikon: "⚡", label: "Otomasyon", aktif: true, badge: "1" },
-                      { ikon: "💡", label: "Cihazlar", aktif: false, badge: null },
-                      { ikon: "📊", label: "Raporlar", aktif: false, badge: null },
-                      { ikon: "⚙", label: "Ayarlar", aktif: false, badge: null },
+                      { Ikon: SquaresFour, label: "Genel Bakış", aktif: false, badge: null },
+                      { Ikon: Target, label: "Sensörler", aktif: false, badge: null },
+                      { Ikon: Lightning, label: "Otomasyon", aktif: true, badge: "1" },
+                      { Ikon: Lightbulb, label: "Cihazlar", aktif: false, badge: null },
+                      { Ikon: ChartBar, label: "Raporlar", aktif: false, badge: null },
+                      { Ikon: Gear, label: "Ayarlar", aktif: false, badge: null },
                     ].map((item) => (
                       <div
                         key={item.label}
@@ -173,7 +202,7 @@ export default function AkilliTarimPage() {
                         style={item.aktif ? { background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.22)" } : {}}
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="text-[13px]" style={{ color: item.aktif ? "#c084fc" : "#52525b" }}>{item.ikon}</span>
+                          <item.Ikon size={14} weight="bold" style={{ color: item.aktif ? "#c084fc" : "#52525b" }} aria-hidden="true" />
                           <span className="text-[12px]" style={{ color: item.aktif ? "#e9d5ff" : "#52525b", fontWeight: item.aktif ? 600 : 400 }}>{item.label}</span>
                         </div>
                         {item.badge && (
@@ -201,7 +230,7 @@ export default function AkilliTarimPage() {
                   {/* Alert banner */}
                   <div className="flex items-center gap-3 px-5 py-2.5 border-b shrink-0" style={{ background: "rgba(234,179,8,0.07)", borderColor: "rgba(234,179,8,0.18)" }}>
                     <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(234,179,8,0.2)", border: "1px solid rgba(234,179,8,0.35)" }}>
-                      <span className="text-[10px]">⚠</span>
+                      <Warning size={11} weight="bold" style={{ color: "#fde68a" }} aria-hidden="true" />
                     </div>
                     <p className="text-[11px] flex-1" style={{ color: "#fde68a" }}>
                       <span className="font-bold">Kural 1 Tetiklendi —</span>
@@ -232,14 +261,14 @@ export default function AkilliTarimPage() {
                     {/* Sensor cards */}
                     <div className="grid grid-cols-4 gap-2">
                       {[
-                        { ikon: "🌡️", label: "Sıcaklık", val: "24.5°C", trend: "+0.2°", sub: "Normal", valColor: "#fb923c", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
-                        { ikon: "💧", label: "Nem", val: "%76", trend: "↑ artıyor", sub: "⚠ Eşik aşıldı", valColor: "#fde047", bg: "rgba(234,179,8,0.07)", border: "rgba(234,179,8,0.3)", glow: true },
-                        { ikon: "👁️", label: "Varlık", val: "12/14", trend: "2 dışarıda", sub: "Takip aktif", valColor: "#ffffff", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
-                        { ikon: "🔋", label: "Pil", val: "%87", trend: "≈2 yıl", sub: "Normal", valColor: "#34d399", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
+                        { Ikon: Thermometer, label: "Sıcaklık", val: "24.5°C", trend: "+0.2°", sub: "Normal", valColor: "#fb923c", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
+                        { Ikon: Drop, label: "Nem", val: "%76", trend: "↑ artıyor", sub: "Eşik aşıldı", valColor: "#fde047", bg: "rgba(234,179,8,0.07)", border: "rgba(234,179,8,0.3)", glow: true },
+                        { Ikon: Eye, label: "Varlık", val: "12/14", trend: "2 dışarıda", sub: "Takip aktif", valColor: "#ffffff", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
+                        { Ikon: BatteryFull, label: "Pil", val: "%87", trend: "≈2 yıl", sub: "Normal", valColor: "#34d399", bg: "#111113", border: "rgba(255,255,255,0.06)", glow: false },
                       ].map((s) => (
                         <div key={s.label} className="rounded-2xl p-3" style={{ background: s.bg, border: `1px solid ${s.border}`, boxShadow: s.glow ? "0 0 20px rgba(234,179,8,0.08)" : "none" }}>
                           <div className="flex items-center justify-between mb-1.5">
-                            <span className="text-sm">{s.ikon}</span>
+                            <s.Ikon size={15} weight="duotone" style={{ color: s.valColor }} aria-hidden="true" />
                             <span className="text-[9px] font-mono" style={{ color: "#3f3f46" }}>{s.trend}</span>
                           </div>
                           <p className="text-[18px] font-bold leading-none" style={{ color: s.valColor }}>{s.val}</p>
@@ -337,13 +366,13 @@ export default function AkilliTarimPage() {
                         </div>
                         <div className="space-y-2.5">
                           {[
-                            { ad: "Fan 1", ikon: "🌀", acik: true, oto: true },
-                            { ad: "Fan 2", ikon: "🌀", acik: true, oto: true },
-                            { ad: "Hava", ikon: "💨", acik: false, oto: false },
+                            { ad: "Fan 1", Ikon: Fan, acik: true, oto: true },
+                            { ad: "Fan 2", Ikon: Fan, acik: true, oto: true },
+                            { ad: "Hava", Ikon: Wind, acik: false, oto: false },
                           ].map((c) => (
                             <div key={c.ad} className="rounded-xl p-2.5" style={{ background: c.acik ? "rgba(16,185,129,0.08)" : "#18181b", border: c.acik ? "1px solid rgba(16,185,129,0.2)" : "1px solid rgba(255,255,255,0.05)" }}>
                               <div className="flex items-center justify-between mb-1">
-                                <span className="text-[13px]">{c.ikon}</span>
+                                <c.Ikon size={14} weight="bold" style={{ color: c.acik ? "#34d399" : "#52525b" }} aria-hidden="true" />
                                 <div className="flex items-center px-0.5 rounded-full" style={{ width: "28px", height: "14px", background: c.acik ? "#10b981" : "#3f3f46" }}>
                                   <div className="rounded-full bg-white" style={{ width: "10px", height: "10px", transform: c.acik ? "translateX(14px)" : "translateX(0)", transition: "transform 0.2s" }} />
                                 </div>
@@ -417,7 +446,7 @@ export default function AkilliTarimPage() {
                     </div>
                     <div className="relative">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "rgba(234,179,8,0.15)", border: "1px solid rgba(234,179,8,0.35)" }}>
-                        <span className="text-[14px]">🔔</span>
+                        <Bell size={15} weight="fill" style={{ color: "#fde68a" }} aria-hidden="true" />
                       </div>
                       <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full flex items-center justify-center text-white font-bold" style={{ background: "#ef4444", fontSize: "8px" }}>1</div>
                     </div>
@@ -441,7 +470,9 @@ export default function AkilliTarimPage() {
                     {/* Nem card with mini chart */}
                     <div className="rounded-2xl p-3" style={{ background: "#111113", border: "1px solid rgba(255,255,255,0.07)" }}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[11px]" style={{ color: "#52525b" }}>💧 Nem</span>
+                        <span className="text-[11px] inline-flex items-center gap-1.5" style={{ color: "#52525b" }}>
+                          <Drop size={12} weight="bold" aria-hidden="true" /> Nem
+                        </span>
                         <span className="text-[9px] px-2 py-0.5 rounded-full font-mono" style={{ color: "#fbbf24", background: "rgba(234,179,8,0.12)", border: "1px solid rgba(234,179,8,0.25)" }}>eşik %75</span>
                       </div>
                       <p className="text-[22px] font-bold leading-none mb-2" style={{ color: "#fde047" }}>%76</p>
@@ -464,13 +495,13 @@ export default function AkilliTarimPage() {
                       <p className="text-[9px] font-semibold uppercase tracking-widest mb-2.5" style={{ color: "#3f3f46" }}>Cihazlar</p>
                       <div className="space-y-2.5">
                         {[
-                          { ad: "Fan 1", ikon: "🌀", acik: true, oto: true },
-                          { ad: "Fan 2", ikon: "🌀", acik: true, oto: true },
-                          { ad: "Havalandırma", ikon: "💨", acik: false, oto: false },
+                          { ad: "Fan 1", Ikon: Fan, acik: true, oto: true },
+                          { ad: "Fan 2", Ikon: Fan, acik: true, oto: true },
+                          { ad: "Havalandırma", Ikon: Wind, acik: false, oto: false },
                         ].map((c) => (
                           <div key={c.ad} className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <span className="text-[14px]">{c.ikon}</span>
+                              <c.Ikon size={15} weight="bold" style={{ color: c.acik ? "#34d399" : "#52525b" }} aria-hidden="true" />
                               <div>
                                 <p className="text-[12px] font-medium text-white">{c.ad}</p>
                                 {c.oto && <p className="text-[9px]" style={{ color: "#a78bfa" }}>otomasyon</p>}
@@ -488,13 +519,13 @@ export default function AkilliTarimPage() {
                   {/* Bottom tab bar */}
                   <div className="flex items-center justify-around px-2 py-2 border-t" style={{ background: "#111113", borderColor: "rgba(255,255,255,0.06)" }}>
                     {[
-                      { ikon: "⊞", label: "Özet", aktif: false },
-                      { ikon: "◎", label: "Sensör", aktif: false },
-                      { ikon: "⚡", label: "Oto", aktif: true },
-                      { ikon: "☰", label: "Daha", aktif: false },
+                      { Ikon: SquaresFour, label: "Özet", aktif: false },
+                      { Ikon: Target, label: "Sensör", aktif: false },
+                      { Ikon: Lightning, label: "Oto", aktif: true },
+                      { Ikon: List, label: "Daha", aktif: false },
                     ].map((n) => (
                       <div key={n.label} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl" style={n.aktif ? { background: "rgba(168,85,247,0.15)" } : {}}>
-                        <span className="text-[13px]" style={{ color: n.aktif ? "#c084fc" : "#3f3f46" }}>{n.ikon}</span>
+                        <n.Ikon size={14} weight="bold" style={{ color: n.aktif ? "#c084fc" : "#3f3f46" }} aria-hidden="true" />
                         <span className="text-[8px]" style={{ color: n.aktif ? "#a78bfa" : "#3f3f46" }}>{n.label}</span>
                       </div>
                     ))}
@@ -512,12 +543,12 @@ export default function AkilliTarimPage() {
           {/* Açıklama şeridi */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { ikon: "⚙️", baslik: "Kural Belirleyin", acik: "\"Nem %75'i geçerse Fan 1 ve Fan 2'yi aç\" gibi kuralları uygulamadan ayarlarsınız." },
-              { ikon: "⚡", baslik: "Sistem Otomatik Yapar", acik: "Eşik aşıldığında sistem fanları açar. Telefonunuza bakmanıza gerek yoktur." },
-              { ikon: "📋", baslik: "Kayıt Tutulur", acik: "Ne zaman ne olduğu olay kaydında saklanır. İleride incelemek için her zaman erişilebilir." },
+              { Ikon: Gear, baslik: "Kural Belirleyin", acik: "\"Nem %75'i geçerse Fan 1 ve Fan 2'yi aç\" gibi kuralları uygulamadan ayarlarsınız." },
+              { Ikon: Lightning, baslik: "Sistem Otomatik Yapar", acik: "Eşik aşıldığında sistem fanları açar. Telefonunuza bakmanıza gerek yoktur." },
+              { Ikon: ClipboardText, baslik: "Kayıt Tutulur", acik: "Ne zaman ne olduğu olay kaydında saklanır. İleride incelemek için her zaman erişilebilir." },
             ].map((item) => (
               <div key={item.baslik} className="rounded-2xl border border-purple-500/15 bg-purple-500/5 p-5 flex gap-4">
-                <span className="text-2xl shrink-0">{item.ikon}</span>
+                <item.Ikon size={26} weight="duotone" className="shrink-0 text-purple-300" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold text-white mb-1">{item.baslik}</h4>
                   <p className="text-sm text-zinc-400">{item.acik}</p>
@@ -541,39 +572,42 @@ export default function AkilliTarimPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                ikon: "🌡️",
+                Ikon: Thermometer,
                 baslik: "Yaz Ortasında Isı Stresi",
                 renk: "orange",
                 border: "border-orange-500/20",
                 bg: "bg-orange-500/5",
                 ikonBg: "bg-orange-500/10 border-orange-500/20",
+                ikonRenk: "text-orange-400",
                 oncesi: "Temmuz günü ahır 38°C'yi geçiyor. Çiftçi fark ettiğinde hayvanlar strese girmiş, verim düşmüş.",
                 sonrasi: "Sistem 34°C'de uyarı veriyor. Çiftçi telefona bakıyor, havalandırmayı açıyor. Hayvanlar etkilenmeden sorunu çözüyor.",
               },
               {
-                ikon: "💧",
+                Ikon: Drop,
                 baslik: "Ahırda Yüksek Nem",
                 renk: "blue",
                 border: "border-blue-500/20",
                 bg: "bg-blue-500/5",
                 ikonBg: "bg-blue-500/10 border-blue-500/20",
+                ikonRenk: "text-blue-400",
                 oncesi: "Uzun süreli yağmur sonrası ahır nemi %85'e çıkıyor. Küf oluşuyor, hayvanlar solunum yolu hastalığına yakalanıyor.",
                 sonrasi: "Nem %75'i geçtiğinde Fan 1 ve Fan 2 otomatik devreye girer. Çiftçi uyandığında ahır zaten havalanmış, nem normal seviyeye inmiş olur.",
               },
               {
-                ikon: "👁️",
+                Ikon: Eye,
                 baslik: "Gece Kaçan Hayvan",
                 renk: "yellow",
                 border: "border-yellow-500/20",
                 bg: "bg-yellow-500/5",
                 ikonBg: "bg-yellow-500/10 border-yellow-500/20",
+                ikonRenk: "text-yellow-400",
                 oncesi: "Ahır kapısı rüzgardan açılıyor. Sabah kontrol edildiğinde bir inek kayıp — saatler geçmiş.",
                 sonrasi: "Gece 02:30'da sistem 'hayvan sayısı azaldı' bildirimi gönderiyor. Çiftçi 20 dakika içinde ineği buluyor.",
               },
             ].map((item) => (
               <div key={item.baslik} className={`rounded-3xl border ${item.border} ${item.bg} p-8`}>
-                <div className={`w-12 h-12 rounded-2xl border ${item.ikonBg} flex items-center justify-center text-2xl mb-5`}>
-                  {item.ikon}
+                <div className={`w-12 h-12 rounded-2xl border ${item.ikonBg} flex items-center justify-center mb-5`}>
+                  <item.Ikon size={24} weight="duotone" className={item.ikonRenk} aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-semibold mb-5">{item.baslik}</h3>
                 <div className="space-y-4">
@@ -634,12 +668,12 @@ export default function AkilliTarimPage() {
                   </p>
                   <div className="space-y-3">
                     {[
-                      { ikon: "🔋", baslik: "Pil yok", acik: "Pasif etiket — enerji almak için pil takmaya gerek yok." },
-                      { ikon: "🐄", baslik: "Hayvanı rahatsız etmez", acik: "Standart kulak küpesiyle aynı boyut ve ağırlık." },
-                      { ikon: "⏳", baslik: "5+ yıl ömür", acik: "Bir kez takıldıktan sonra yıllarca bakım gerektirmez." },
+                      { Ikon: BatteryFull, baslik: "Pil yok", acik: "Pasif etiket — enerji almak için pil takmaya gerek yok." },
+                      { Ikon: Cow, baslik: "Hayvanı rahatsız etmez", acik: "Standart kulak küpesiyle aynı boyut ve ağırlık." },
+                      { Ikon: Hourglass, baslik: "5+ yıl ömür", acik: "Bir kez takıldıktan sonra yıllarca bakım gerektirmez." },
                     ].map((m) => (
                       <div key={m.baslik} className="flex items-start gap-3">
-                        <span className="text-lg shrink-0 mt-0.5">{m.ikon}</span>
+                        <m.Ikon size={20} weight="duotone" className="shrink-0 mt-0.5 text-yellow-400" aria-hidden="true" />
                         <div>
                           <p className="text-sm font-semibold text-white">{m.baslik}</p>
                           <p className="text-sm text-zinc-500">{m.acik}</p>
@@ -673,12 +707,12 @@ export default function AkilliTarimPage() {
                   </p>
                   <div className="space-y-3">
                     {[
-                      { ikon: "📡", baslik: "Etiketleri okur", acik: "Menzil içindeki tüm etiket numaralarını saniyeler içinde tespit eder." },
-                      { ikon: "🔢", baslik: "Hayvan sayar", acik: "\"14 hayvandan 12'si içeride, 2'si dışarıda\" bilgisini anlık üretir." },
-                      { ikon: "⚡", baslik: "Hem ölçer hem iletir", acik: "Sıcaklık ve nem ölçümü + hayvan sayımı tek cihazdan yapılır." },
+                      { Ikon: Broadcast, baslik: "Etiketleri okur", acik: "Menzil içindeki tüm etiket numaralarını saniyeler içinde tespit eder." },
+                      { Ikon: ListNumbers, baslik: "Hayvan sayar", acik: "\"14 hayvandan 12'si içeride, 2'si dışarıda\" bilgisini anlık üretir." },
+                      { Ikon: Lightning, baslik: "Hem ölçer hem iletir", acik: "Sıcaklık ve nem ölçümü + hayvan sayımı tek cihazdan yapılır." },
                     ].map((m) => (
                       <div key={m.baslik} className="flex items-start gap-3">
-                        <span className="text-lg shrink-0 mt-0.5">{m.ikon}</span>
+                        <m.Ikon size={20} weight="duotone" className="shrink-0 mt-0.5 text-emerald-400" aria-hidden="true" />
                         <div>
                           <p className="text-sm font-semibold text-white">{m.baslik}</p>
                           <p className="text-sm text-zinc-500">{m.acik}</p>
@@ -697,7 +731,7 @@ export default function AkilliTarimPage() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               {[
                 {
-                  ikon: "🐄",
+                  Ikon: Cow,
                   baslik: "Hayvan",
                   acik: "Kulağındaki etiket her 30 saniyede bir sinyal yayar",
                   renk: "border-yellow-500/30 bg-yellow-500/5",
@@ -705,7 +739,7 @@ export default function AkilliTarimPage() {
                 },
                 null,
                 {
-                  ikon: "📡",
+                  Ikon: Broadcast,
                   baslik: "Ana Sensör",
                   acik: "Etiketleri okur, sıcaklık & nem ölçer, LoRa ile iletir",
                   renk: "border-emerald-500/30 bg-emerald-500/5",
@@ -713,7 +747,7 @@ export default function AkilliTarimPage() {
                 },
                 null,
                 {
-                  ikon: "🗼",
+                  Ikon: CellTower,
                   baslik: "Gateway",
                   acik: "Çiftliğe kurulu alıcı, veriyi internete taşır",
                   renk: "border-blue-500/30 bg-blue-500/5",
@@ -721,7 +755,7 @@ export default function AkilliTarimPage() {
                 },
                 null,
                 {
-                  ikon: "📱",
+                  Ikon: DeviceMobile,
                   baslik: "Telefonunuz",
                   acik: "Anlık sayım, alarm bildirimleri ve geçmiş kayıtlar",
                   renk: "border-purple-500/30 bg-purple-500/5",
@@ -735,7 +769,7 @@ export default function AkilliTarimPage() {
                   </div>
                 ) : (
                   <div key={item.baslik} className={`rounded-2xl border ${item.renk} p-5 text-center flex-1 max-w-44`}>
-                    <div className="text-3xl mb-2">{item.ikon}</div>
+                    <item.Ikon size={30} weight="duotone" className={`mx-auto mb-2 ${item.etiketRenk}`} aria-hidden="true" />
                     <p className={`text-sm font-bold mb-1 ${item.etiketRenk}`}>{item.baslik}</p>
                     <p className="text-xs text-zinc-500 leading-relaxed">{item.acik}</p>
                   </div>
@@ -757,14 +791,14 @@ export default function AkilliTarimPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { adim: "1", ikon: "📦", baslik: "Kutusundan Çıkar", acik: "Cihaz hazır gelir. Pili tak, kapağını kapat." },
-              { adim: "2", ikon: "📍", baslik: "Ahıra Yerleştir", acik: "Duvara veya direğe sabitle. Elektrik kablosu gerekmez." },
-              { adim: "3", ikon: "🏷️", baslik: "Etiketleri Tak", acik: "Her hayvana bir etiket takılır. Kulak küpesi gibi — bir kez, ömür boyu." },
-              { adim: "4", ikon: "📱", baslik: "Telefondan İzle", acik: "Uygulama veya web arayüzünden sayımı ve sensör verilerini canlı görün." },
+              { adim: "1", Ikon: Package, baslik: "Kutusundan Çıkar", acik: "Cihaz hazır gelir. Pili tak, kapağını kapat." },
+              { adim: "2", Ikon: MapPin, baslik: "Ahıra Yerleştir", acik: "Duvara veya direğe sabitle. Elektrik kablosu gerekmez." },
+              { adim: "3", Ikon: Tag, baslik: "Etiketleri Tak", acik: "Her hayvana bir etiket takılır. Kulak küpesi gibi — bir kez, ömür boyu." },
+              { adim: "4", Ikon: DeviceMobile, baslik: "Telefondan İzle", acik: "Uygulama veya web arayüzünden sayımı ve sensör verilerini canlı görün." },
             ].map((item) => (
               <div key={item.adim} className="rounded-2xl border border-white/10 bg-white/5 p-6 relative">
                 <span className="absolute top-4 right-4 text-xs text-zinc-700 font-mono font-bold">{item.adim}</span>
-                <div className="text-3xl mb-4">{item.ikon}</div>
+                <item.Ikon size={30} weight="duotone" className="mb-4 text-amber-400" aria-hidden="true" />
                 <h4 className="font-semibold mb-1">{item.baslik}</h4>
                 <p className="text-sm text-zinc-400">{item.acik}</p>
               </div>

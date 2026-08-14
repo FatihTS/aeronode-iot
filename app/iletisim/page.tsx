@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EnvelopeSimple, MapPin, Lightning, Wrench } from "@phosphor-icons/react/dist/ssr";
 import ContactForm from "../components/ContactForm";
 
 export const metadata: Metadata = {
@@ -34,24 +35,32 @@ export default function IletisimPage() {
           {/* Bilgi kartları */}
           <div className="space-y-5">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-xl mb-4">✉️</div>
+              <div className="w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-4">
+                <EnvelopeSimple size={22} weight="duotone" className="text-amber-400" aria-hidden="true" />
+              </div>
               <h3 className="font-semibold text-white mb-1">E-posta</h3>
               <a href="mailto:aeronode.iot@gmail.com" className="text-zinc-400 hover:text-amber-400 transition">
                 aeronode.iot@gmail.com
               </a>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl mb-4">📍</div>
+              <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                <MapPin size={22} weight="duotone" className="text-blue-400" aria-hidden="true" />
+              </div>
               <h3 className="font-semibold text-white mb-1">Kurulum Bölgesi</h3>
               <p className="text-zinc-400">Türkiye geneli saha kurulumu ve destek.</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl mb-4">⚡</div>
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                <Lightning size={22} weight="duotone" className="text-emerald-400" aria-hidden="true" />
+              </div>
               <h3 className="font-semibold text-white mb-1">Yanıt Süresi</h3>
               <p className="text-zinc-400">Genellikle 24 saat içinde dönüş yapılır.</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-xl mb-4">🛠️</div>
+              <div className="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+                <Wrench size={22} weight="duotone" className="text-purple-400" aria-hidden="true" />
+              </div>
               <h3 className="font-semibold text-white mb-1">Kurulum Desteği</h3>
               <p className="text-zinc-400">Teklife saha kurulum desteği dahildir.</p>
             </div>

@@ -1,5 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Cow,
+  Drop,
+  Mountains,
+  Factory,
+  DeviceMobile,
+  Broadcast,
+  BatteryFull,
+  WifiHigh,
+  MoneyWavy,
+  Thermometer,
+  Eye,
+  Bell,
+  MapPin,
+  Lightning,
+  Wrench,
+  Check,
+  X,
+} from "@phosphor-icons/react/dist/ssr";
 import EagleEyeHero from "./components/EagleEyeHero";
 
 export default function IoTLandingPage() {
@@ -37,25 +56,25 @@ export default function IoTLandingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                ikon: "🐄",
+                Ikon: Cow,
                 baslik: "Çiftçiler",
                 acik: "Büyükbaş, küçükbaş ve kümes hayvanlarını ahırdan çıkmadan izleyin. Sıcaklık, nem ve varlık takibi tek cihazda.",
                 renk: "emerald",
               },
               {
-                ikon: "💧",
+                Ikon: Drop,
                 baslik: "Su Yönetimi",
                 acik: "Tarla sulaması, kuyu seviyesi ve depo takibi. Su bitmeden önce haberdar olun, israfı önleyin.",
                 renk: "blue",
               },
               {
-                ikon: "🏔️",
+                Ikon: Mountains,
                 baslik: "Uzak Tesisler",
                 acik: "Elektrik hattı veya telefon sinyali olmayan noktalarda güneş enerjili sensörlerle kesintisiz izleme.",
                 renk: "yellow",
               },
               {
-                ikon: "🏭",
+                Ikon: Factory,
                 baslik: "Küçük İşletmeler",
                 acik: "Sera, ahşap imalathane, soğuk hava deposu — sıcaklık ve nem kritik olan her ortam için.",
                 renk: "purple",
@@ -67,7 +86,17 @@ export default function IoTLandingPage() {
                 item.renk === "yellow" ? "border-yellow-500/20 bg-yellow-500/5" :
                 "border-purple-500/20 bg-purple-500/5"
               }`}>
-                <div className="text-3xl mb-4">{item.ikon}</div>
+                <item.Ikon
+                  size={32}
+                  weight="duotone"
+                  className={`mb-4 ${
+                    item.renk === "emerald" ? "text-emerald-400" :
+                    item.renk === "blue" ? "text-blue-400" :
+                    item.renk === "yellow" ? "text-yellow-400" :
+                    "text-purple-400"
+                  }`}
+                  aria-hidden="true"
+                />
                 <h3 className="font-semibold text-white mb-2">{item.baslik}</h3>
                 <p className="text-sm text-zinc-300 leading-relaxed">{item.acik}</p>
               </div>
@@ -97,7 +126,9 @@ export default function IoTLandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
             <div className="rounded-3xl border border-red-500/20 bg-red-500/5 p-8">
               <div className="flex items-center gap-3 mb-7">
-                <div className="w-11 h-11 rounded-2xl bg-red-500/15 border border-red-500/20 flex items-center justify-center text-xl">📱</div>
+                <div className="w-11 h-11 rounded-2xl bg-red-500/15 border border-red-500/20 flex items-center justify-center">
+                  <DeviceMobile size={22} weight="duotone" className="text-red-400" aria-hidden="true" />
+                </div>
                 <div>
                   <p className="text-xs text-zinc-400 uppercase tracking-widest">Geleneksel yöntem</p>
                   <h3 className="font-semibold text-zinc-300 mt-0.5">GSM / 4G Cihazlar</h3>
@@ -112,7 +143,7 @@ export default function IoTLandingPage() {
                   "Operatör değişirse sistem çalışmayabilir",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-zinc-300">
-                    <span className="text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
+                    <X size={16} weight="bold" className="text-red-400 shrink-0 mt-1" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -124,7 +155,9 @@ export default function IoTLandingPage() {
                 TEKNOLOJİMİZ
               </div>
               <div className="flex items-center gap-3 mb-7">
-                <div className="w-11 h-11 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-xl">📡</div>
+                <div className="w-11 h-11 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center">
+                  <Broadcast size={22} weight="duotone" className="text-amber-400" aria-hidden="true" />
+                </div>
                 <div>
                   <p className="text-xs text-zinc-400 uppercase tracking-widest">Kargu yöntemi</p>
                   <h3 className="font-semibold text-white mt-0.5">LoRa Kablosuz</h3>
@@ -139,7 +172,7 @@ export default function IoTLandingPage() {
                   "Kurulumdan sonra bakım gerektirmez",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-zinc-200">
-                    <span className="text-amber-400 shrink-0 mt-0.5 font-bold">✓</span>
+                    <Check size={16} weight="bold" className="text-amber-400 shrink-0 mt-1" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -149,12 +182,12 @@ export default function IoTLandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { icon: "🔋", title: "Tek Pille 5 Yıla Kadar", body: "Sensörlerimiz o kadar az güç tüketir ki pili bir kez takarsınız — sonra yıllarca unutursunuz. Düşük güç tasarımı sayesinde AA pil 5 yıla kadar yetebilir." },
-              { icon: "📶", title: "Sinyal Olmayan Yere de Gider", body: "LoRa radyo sinyali duvarları, tarlaları ve tepeleri aşar. Türkiye'nin dağlık ve kırsal bölgelerinde mobil şebeke olmasa da çalışır." },
-              { icon: "💸", title: "Bir Kere Al, Sürekli Kullan", body: "Cihazı satın aldıktan sonra ek bir ödeme yoktur. SIM kart yok, veri paketi yok, ay sonunda sürpriz fatura yok." },
+              { Icon: BatteryFull, title: "Tek Pille 5 Yıla Kadar", body: "Sensörlerimiz o kadar az güç tüketir ki pili bir kez takarsınız — sonra yıllarca unutursunuz. Düşük güç tasarımı sayesinde AA pil 5 yıla kadar yetebilir." },
+              { Icon: WifiHigh, title: "Sinyal Olmayan Yere de Gider", body: "LoRa radyo sinyali duvarları, tarlaları ve tepeleri aşar. Türkiye'nin dağlık ve kırsal bölgelerinde mobil şebeke olmasa da çalışır." },
+              { Icon: MoneyWavy, title: "Bir Kere Al, Sürekli Kullan", body: "Cihazı satın aldıktan sonra ek bir ödeme yoktur. SIM kart yok, veri paketi yok, ay sonunda sürpriz fatura yok." },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex gap-4 hover:border-amber-400/30 transition">
-                <div className="text-3xl shrink-0">{item.icon}</div>
+                <item.Icon size={28} weight="duotone" className="text-amber-400 shrink-0" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold mb-1">{item.title}</h4>
                   <p className="text-sm text-zinc-300 leading-relaxed">{item.body}</p>
@@ -189,13 +222,15 @@ export default function IoTLandingPage() {
 
               <div className="mt-10 space-y-5">
                 {[
-                  { icon: "🔋", label: "Çok yıllık pil ömrü", sub: "Pil değiştirmeden yıllarca çalışır. Bakım için uzağa gitmenize gerek yok." },
-                  { icon: "📡", label: "LoRa kablosuz — SIM kart yok", sub: "Telefon sinyali olmayan tarlalarda, çiftliklerde ve dağlık bölgelerde çalışır." },
-                  { icon: "💧", label: "Sürekli seviye ölçümü", sub: "Her birkaç dakikada bir seviyeyi ölçer, veriler telefonunuza iletilir." },
-                  { icon: "🔔", label: "Kritik seviye alarmı", sub: "Su %20'nin altına düştüğünde — veya siz hangi eşiği belirlediyseniz — anında bildirim alırsınız." },
+                  { Icon: BatteryFull, label: "Çok yıllık pil ömrü", sub: "Pil değiştirmeden yıllarca çalışır. Bakım için uzağa gitmenize gerek yok." },
+                  { Icon: Broadcast, label: "LoRa kablosuz — SIM kart yok", sub: "Telefon sinyali olmayan tarlalarda, çiftliklerde ve dağlık bölgelerde çalışır." },
+                  { Icon: Drop, label: "Sürekli seviye ölçümü", sub: "Her birkaç dakikada bir seviyeyi ölçer, veriler telefonunuza iletilir." },
+                  { Icon: Bell, label: "Kritik seviye alarmı", sub: "Su %20'nin altına düştüğünde — veya siz hangi eşiği belirlediyseniz — anında bildirim alırsınız." },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-4 items-start">
-                    <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl shrink-0">{item.icon}</div>
+                    <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <item.Icon size={22} weight="duotone" className="text-blue-400" aria-hidden="true" />
+                    </div>
                     <div>
                       <p className="font-semibold text-white">{item.label}</p>
                       <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
@@ -216,7 +251,9 @@ export default function IoTLandingPage() {
                 <div className="relative w-20 h-20 flex items-center justify-center mb-2">
                   <div className="absolute w-20 h-20 rounded-full border border-blue-500/20" style={{ animation: "ping 2.5s ease-out infinite" }} />
                   <div className="absolute w-14 h-14 rounded-full border border-blue-500/30" style={{ animation: "ping 2.5s ease-out 0.5s infinite" }} />
-                  <div className="relative w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-lg z-10">📡</div>
+                  <div className="relative w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center z-10">
+                    <Broadcast size={18} weight="duotone" className="text-blue-300" aria-hidden="true" />
+                  </div>
                 </div>
                 <div className="w-px h-8 bg-gradient-to-b from-blue-500/40 to-transparent" />
                 <div className="relative w-52 rounded-3xl border-2 border-blue-500/30 bg-zinc-900/80 overflow-hidden" style={{ height: "280px" }}>
@@ -260,12 +297,12 @@ export default function IoTLandingPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-3">
                 {[
-                  { ikon: "🌡️", baslik: "Sıcaklık", deger: "24.5°C" },
-                  { ikon: "💧", baslik: "Nem", deger: "%68" },
-                  { ikon: "👁️", baslik: "Varlık", deger: "12/14" },
+                  { Ikon: Thermometer, baslik: "Sıcaklık", deger: "24.5°C" },
+                  { Ikon: Drop, baslik: "Nem", deger: "%68" },
+                  { Ikon: Eye, baslik: "Varlık", deger: "12/14" },
                 ].map((s) => (
                   <div key={s.baslik} className="rounded-xl bg-black/70 border border-white/10 backdrop-blur-sm p-3 text-center">
-                    <div className="text-lg mb-1">{s.ikon}</div>
+                    <s.Ikon size={20} weight="duotone" className="mx-auto mb-1 text-emerald-400" aria-hidden="true" />
                     <div className="text-xs text-zinc-400">{s.baslik}</div>
                     <div className="text-sm font-bold text-white">{s.deger}</div>
                   </div>
@@ -288,12 +325,14 @@ export default function IoTLandingPage() {
 
               <div className="mt-10 space-y-5">
                 {[
-                  { ikon: "🌡️", label: "Sıcaklık & nem takibi", sub: "Ahır optimum aralığın dışına çıktığında anında uyarı alırsınız. Yaz kavruluğu, kış dondurucu soğuğu — her ikisi için ayrı alarm eşiği kurabilirsiniz." },
-                  { ikon: "👁️", label: "Hayvan varlık takibi", sub: "Kaç hayvan ahırda, kaçı dışarıda? Gece saatlerinde anormal hareket veya kayıp tespit edilirse hemen bildirim gelir." },
-                  { ikon: "🔔", label: "7/24 alarm sistemi", sub: "Uyku saatinizde bile sistem uyanık. Kritik bir durum oluştuğunda sizi telefonla, SMS ile veya uygulama bildirimiyle uyarır." },
+                  { Ikon: Thermometer, label: "Sıcaklık & nem takibi", sub: "Ahır optimum aralığın dışına çıktığında anında uyarı alırsınız. Yaz kavruluğu, kış dondurucu soğuğu — her ikisi için ayrı alarm eşiği kurabilirsiniz." },
+                  { Ikon: Eye, label: "Hayvan varlık takibi", sub: "Kaç hayvan ahırda, kaçı dışarıda? Gece saatlerinde anormal hareket veya kayıp tespit edilirse hemen bildirim gelir." },
+                  { Ikon: Bell, label: "7/24 alarm sistemi", sub: "Uyku saatinizde bile sistem uyanık. Kritik bir durum oluştuğunda sizi telefonla, SMS ile veya uygulama bildirimiyle uyarır." },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-4 items-start">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl shrink-0">{item.ikon}</div>
+                    <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                      <item.Ikon size={22} weight="duotone" className="text-emerald-400" aria-hidden="true" />
+                    </div>
                     <div>
                       <p className="font-semibold text-white">{item.label}</p>
                       <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
@@ -424,12 +463,12 @@ export default function IoTLandingPage() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto text-sm text-zinc-300">
             {[
-              { ikon: "📍", text: "Türkiye geneli kurulum" },
-              { ikon: "⚡", text: "24 saat içi yanıt" },
-              { ikon: "🛠️", text: "Kurulum desteği dahil" },
+              { Ikon: MapPin, text: "Türkiye geneli kurulum" },
+              { Ikon: Lightning, text: "24 saat içi yanıt" },
+              { Ikon: Wrench, text: "Kurulum desteği dahil" },
             ].map((item) => (
               <div key={item.text} className="flex items-center justify-center gap-2">
-                <span>{item.ikon}</span>
+                <item.Ikon size={16} weight="bold" className="text-amber-400" aria-hidden="true" />
                 <span>{item.text}</span>
               </div>
             ))}

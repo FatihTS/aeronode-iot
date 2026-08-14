@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  Target,
+  Compass,
+  MapTrifold,
+  Wrench,
+  BatteryFull,
+  MoneyWavy,
+  Handshake,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Hakkımızda",
@@ -54,13 +63,13 @@ export default function HakkimizdaPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
-              { ikon: "🎯", baslik: "Misyonumuz", acik: "Elektrik ve GSM sinyali olmayan her noktayı, uygun maliyetle izlenebilir hale getirmek." },
-              { ikon: "🧭", baslik: "Vizyonumuz", acik: "Türkiye kırsalında en yaygın kullanılan bağımsız izleme altyapısı olmak." },
-              { ikon: "🇹🇷", baslik: "Nerede Çalışıyoruz", acik: "Türkiye genelinde saha kurulumu ve uzaktan teknik destek sağlıyoruz." },
-              { ikon: "🔧", baslik: "Ne Üretiyoruz", acik: "Su seviyesi, tarım ve uzak alan telemetrisi için LoRa tabanlı sensör donanımı ve yazılımı." },
+              { Ikon: Target, baslik: "Misyonumuz", acik: "Elektrik ve GSM sinyali olmayan her noktayı, uygun maliyetle izlenebilir hale getirmek." },
+              { Ikon: Compass, baslik: "Vizyonumuz", acik: "Türkiye kırsalında en yaygın kullanılan bağımsız izleme altyapısı olmak." },
+              { Ikon: MapTrifold, baslik: "Nerede Çalışıyoruz", acik: "Türkiye genelinde saha kurulumu ve uzaktan teknik destek sağlıyoruz." },
+              { Ikon: Wrench, baslik: "Ne Üretiyoruz", acik: "Su seviyesi, tarım ve uzak alan telemetrisi için LoRa tabanlı sensör donanımı ve yazılımı." },
             ].map((item) => (
               <div key={item.baslik} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="text-2xl mb-3">{item.ikon}</div>
+                <item.Ikon size={24} weight="duotone" className="mb-3 text-amber-400" aria-hidden="true" />
                 <h3 className="font-semibold text-white mb-1.5">{item.baslik}</h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">{item.acik}</p>
               </div>
@@ -80,13 +89,13 @@ export default function HakkimizdaPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { ikon: "🔋", baslik: "Bakım İstemez", acik: "Cihaz bir kez kurulur, yıllarca dokunulmadan çalışır. Pil ömrü ve dayanıklılık her tasarımın önceliğidir." },
-              { ikon: "💸", baslik: "Şeffaf Maliyet", acik: "Gizli abonelik yok. Ödediğiniz fiyat, aldığınız cihazın bedelidir — ne eksik ne fazla." },
-              { ikon: "🛠️", baslik: "Sahada Test Edilir", acik: "Her ürün, laboratuvar öncesinde gerçek ahırda, gerçek tarlada, gerçek kuyu başında denenir." },
-              { ikon: "🤝", baslik: "Doğrudan Destek", acik: "Aracı çağrı merkezi yok. Sorunuz olduğunda doğrudan bizimle görüşürsünüz." },
+              { Ikon: BatteryFull, baslik: "Bakım İstemez", acik: "Cihaz bir kez kurulur, yıllarca dokunulmadan çalışır. Pil ömrü ve dayanıklılık her tasarımın önceliğidir." },
+              { Ikon: MoneyWavy, baslik: "Şeffaf Maliyet", acik: "Gizli abonelik yok. Ödediğiniz fiyat, aldığınız cihazın bedelidir — ne eksik ne fazla." },
+              { Ikon: Wrench, baslik: "Sahada Test Edilir", acik: "Her ürün, laboratuvar öncesinde gerçek ahırda, gerçek tarlada, gerçek kuyu başında denenir." },
+              { Ikon: Handshake, baslik: "Doğrudan Destek", acik: "Aracı çağrı merkezi yok. Sorunuz olduğunda doğrudan bizimle görüşürsünüz." },
             ].map((item) => (
               <div key={item.baslik} className="rounded-2xl border border-white/10 bg-black/30 p-6 hover:border-amber-400/30 transition">
-                <div className="text-3xl mb-4">{item.ikon}</div>
+                <item.Ikon size={30} weight="duotone" className="mb-4 text-amber-400" aria-hidden="true" />
                 <h3 className="font-semibold text-white mb-2">{item.baslik}</h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">{item.acik}</p>
               </div>

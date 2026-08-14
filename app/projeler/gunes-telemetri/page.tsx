@@ -1,5 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  Sun,
+  Broadcast,
+  Wrench,
+  Mountains,
+  Waves,
+  Plant,
+  Cylinder,
+  Thermometer,
+  Drop,
+  Wind,
+  Leaf,
+  Lightning,
+  Timer,
+  Gear,
+  ChartLineUp,
+  BatteryFull,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Güneş Enerjili Telemetri Düğümü",
@@ -40,7 +58,9 @@ export default function GunesTelemetriPage() {
                 <div className="absolute w-64 h-64 rounded-full border border-yellow-500/10" style={{ animation: "ping 4s ease-out infinite" }} />
                 <div className="absolute w-48 h-48 rounded-full border border-yellow-500/15" style={{ animation: "ping 4s ease-out 1s infinite" }} />
                 <div className="absolute w-32 h-32 rounded-full border border-yellow-500/20" style={{ animation: "ping 4s ease-out 2s infinite" }} />
-                <div className="relative w-24 h-24 rounded-full bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-4xl">☀️</div>
+                <div className="relative w-24 h-24 rounded-full bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center">
+                  <Sun size={40} weight="duotone" className="text-yellow-300" aria-hidden="true" />
+                </div>
               </div>
             </div>
           </div>
@@ -60,23 +80,23 @@ export default function GunesTelemetriPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                ikon: "☀️",
+                Ikon: Sun,
                 baslik: "Güneş ile Beslenir",
                 acik: "Üzerindeki küçük güneş paneli gündüz enerji toplar. Bulutlu günler için de dahili batarya gece boyunca sistemi ayakta tutar.",
               },
               {
-                ikon: "📡",
+                Ikon: Broadcast,
                 baslik: "LoRa ile Haberleşir",
                 acik: "Topladığı sensör verilerini LoRa radyosu aracılığıyla kilometrelerce ötedeki merkeze gönderir. Ne SIM kart ne internet hattı.",
               },
               {
-                ikon: "🔧",
+                Ikon: Wrench,
                 baslik: "Bakım Gerektirmez",
                 acik: "Kurulduktan sonra içine girmek, pil değiştirmek ya da yazılım güncellemek için bizzat gitmenize gerek yoktur.",
               },
             ].map((item) => (
               <div key={item.baslik} className="rounded-3xl border border-white/10 bg-white/5 p-8">
-                <div className="text-4xl mb-5">{item.ikon}</div>
+                <item.Ikon size={36} weight="duotone" className="mb-5 text-yellow-400" aria-hidden="true" />
                 <h3 className="text-xl font-semibold mb-3">{item.baslik}</h3>
                 <p className="text-zinc-400">{item.acik}</p>
               </div>
@@ -145,14 +165,14 @@ export default function GunesTelemetriPage() {
                   <div className="px-2 py-3">
                     <p className="text-[9px] uppercase tracking-widest px-2 mb-2" style={{ color: "#3f3f46" }}>Düğümler</p>
                     {[
-                      { ikon: "🏔️", label: "Kuzey Geçidi", batarya: 78, aktif: true },
-                      { ikon: "🌊", label: "Nehir İst.", batarya: 92, aktif: false },
-                      { ikon: "🌾", label: "Tarla-7", batarya: 55, aktif: false },
-                      { ikon: "🛢️", label: "Uzak Depo", batarya: 71, aktif: false },
+                      { Ikon: Mountains, label: "Kuzey Geçidi", batarya: 78, aktif: true },
+                      { Ikon: Waves, label: "Nehir İst.", batarya: 92, aktif: false },
+                      { Ikon: Plant, label: "Tarla-7", batarya: 55, aktif: false },
+                      { Ikon: Cylinder, label: "Uzak Depo", batarya: 71, aktif: false },
                     ].map((n) => (
                       <div key={n.label} className="flex items-center justify-between px-2 py-2 rounded-xl mb-0.5" style={n.aktif ? { background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.22)" } : {}}>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs">{n.ikon}</span>
+                          <n.Ikon size={12} weight="bold" style={{ color: n.aktif ? "#fde68a" : "#71717a" }} aria-hidden="true" />
                           <span className="text-[11px]" style={{ color: n.aktif ? "#fde68a" : "#71717a" }}>{n.label}</span>
                         </div>
                         <div className="flex items-center gap-1">
@@ -169,13 +189,13 @@ export default function GunesTelemetriPage() {
                   <div className="px-2 mt-1 space-y-0.5">
                     <p className="text-[9px] uppercase tracking-widest px-2 mb-2" style={{ color: "#3f3f46" }}>Menü</p>
                     {[
-                      { ikon: "📡", label: "Sensörler", aktif: true },
-                      { ikon: "☀️", label: "Enerji", aktif: false },
-                      { ikon: "📈", label: "Grafik", aktif: false },
-                      { ikon: "⚙", label: "Ayarlar", aktif: false },
+                      { Ikon: Broadcast, label: "Sensörler", aktif: true },
+                      { Ikon: Sun, label: "Enerji", aktif: false },
+                      { Ikon: ChartLineUp, label: "Grafik", aktif: false },
+                      { Ikon: Gear, label: "Ayarlar", aktif: false },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center gap-2 px-3 py-2 rounded-xl text-[11px]" style={item.aktif ? { background: "rgba(234,179,8,0.12)", border: "1px solid rgba(234,179,8,0.22)", color: "#fde68a", fontWeight: 600 } : { color: "#52525b" }}>
-                        <span>{item.ikon}</span>
+                        <item.Ikon size={13} weight="bold" aria-hidden="true" />
                         <span>{item.label}</span>
                       </div>
                     ))}
@@ -185,7 +205,7 @@ export default function GunesTelemetriPage() {
                   <div className="mt-auto px-3 pb-4">
                     <div className="rounded-xl px-3 py-2.5" style={{ background: "rgba(234,179,8,0.08)", border: "1px solid rgba(234,179,8,0.18)" }}>
                       <div className="flex items-center gap-1.5 mb-1">
-                        <span className="text-xs">☀️</span>
+                        <Sun size={12} weight="bold" className="text-yellow-400" aria-hidden="true" />
                         <p className="text-[10px] font-semibold text-yellow-300">Şarj oluyor</p>
                       </div>
                       <p className="text-[9px]" style={{ color: "#52525b" }}>12.4W giriş · Batarya dolacak</p>
@@ -199,13 +219,13 @@ export default function GunesTelemetriPage() {
                   {/* Üst şerit: Enerji özeti */}
                   <div className="flex items-center gap-0 border-b shrink-0" style={{ background: "#0d0d10", borderColor: "rgba(255,255,255,0.05)" }}>
                     {[
-                      { ikon: "☀️", label: "Güneş Girdisi", val: "12.4 W", sub: "Panel aktif", color: "#fbbf24", bg: "rgba(234,179,8,0.06)", glow: true },
-                      { ikon: "🔋", label: "Batarya", val: "%78", sub: "≈ 6 gün yedek", color: "#34d399", bg: "transparent", glow: false },
-                      { ikon: "⚡", label: "Tüketim", val: "0.8 W", sub: "Düşük güç modu", color: "#a78bfa", bg: "transparent", glow: false },
-                      { ikon: "⏱️", label: "Çalışma Süresi", val: "247 gün", sub: "Kesintisiz", color: "#60a5fa", bg: "transparent", glow: false },
+                      { Ikon: Sun, label: "Güneş Girdisi", val: "12.4 W", sub: "Panel aktif", color: "#fbbf24", bg: "rgba(234,179,8,0.06)", glow: true },
+                      { Ikon: BatteryFull, label: "Batarya", val: "%78", sub: "≈ 6 gün yedek", color: "#34d399", bg: "transparent", glow: false },
+                      { Ikon: Lightning, label: "Tüketim", val: "0.8 W", sub: "Düşük güç modu", color: "#a78bfa", bg: "transparent", glow: false },
+                      { Ikon: Timer, label: "Çalışma Süresi", val: "247 gün", sub: "Kesintisiz", color: "#60a5fa", bg: "transparent", glow: false },
                     ].map((e, i) => (
                       <div key={e.label} className="flex-1 flex items-center gap-2.5 px-4 py-3" style={{ background: e.bg, borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : "none", boxShadow: e.glow ? "inset 0 0 30px rgba(234,179,8,0.04)" : "none" }}>
-                        <span className="text-lg shrink-0">{e.ikon}</span>
+                        <e.Ikon size={18} weight="duotone" className="shrink-0" style={{ color: e.color }} aria-hidden="true" />
                         <div>
                           <p className="text-[11px] font-bold leading-none" style={{ color: e.color }}>{e.val}</p>
                           <p className="text-[9px] mt-0.5" style={{ color: "#52525b" }}>{e.label}</p>
@@ -237,16 +257,16 @@ export default function GunesTelemetriPage() {
                     {/* 6 sensör kartı */}
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { ikon: "🌡️", label: "Sıcaklık", val: "-2.4°C", sub: "Don riski", trend: "↓ soğuyor", valColor: "#93c5fd", bg: "rgba(59,130,246,0.07)", border: "rgba(59,130,246,0.18)" },
-                        { ikon: "💧", label: "Nem", val: "%65", sub: "Normal", trend: "→ sabit", valColor: "#67e8f9", bg: "#111113", border: "rgba(255,255,255,0.07)" },
-                        { ikon: "💨", label: "Rüzgar", val: "34 km/h", sub: "Kuzey yönü", trend: "↑ artıyor", valColor: "#a5b4fc", bg: "#111113", border: "rgba(255,255,255,0.07)" },
-                        { ikon: "🌡️", label: "Basınç", val: "758 hPa", sub: "Düşük basınç", trend: "↓ düşüyor", valColor: "#fb923c", bg: "rgba(249,115,22,0.06)", border: "rgba(249,115,22,0.15)" },
-                        { ikon: "🌿", label: "CO₂", val: "412 ppm", sub: "Normal", trend: "→ sabit", valColor: "#86efac", bg: "#111113", border: "rgba(255,255,255,0.07)" },
-                        { ikon: "☀️", label: "UV İndeks", val: "3.2", sub: "Orta", trend: "↑ artıyor", valColor: "#fde047", bg: "rgba(234,179,8,0.06)", border: "rgba(234,179,8,0.15)" },
+                        { Ikon: Thermometer, label: "Sıcaklık", val: "-2.4°C", sub: "Don riski", trend: "↓ soğuyor", valColor: "#93c5fd", bg: "rgba(59,130,246,0.07)", border: "rgba(59,130,246,0.18)" },
+                        { Ikon: Drop, label: "Nem", val: "%65", sub: "Normal", trend: "→ sabit", valColor: "#67e8f9", bg: "#111113", border: "rgba(255,255,255,0.07)" },
+                        { Ikon: Wind, label: "Rüzgar", val: "34 km/h", sub: "Kuzey yönü", trend: "↑ artıyor", valColor: "#a5b4fc", bg: "#111113", border: "rgba(255,255,255,0.07)" },
+                        { Ikon: Thermometer, label: "Basınç", val: "758 hPa", sub: "Düşük basınç", trend: "↓ düşüyor", valColor: "#fb923c", bg: "rgba(249,115,22,0.06)", border: "rgba(249,115,22,0.15)" },
+                        { Ikon: Leaf, label: "CO₂", val: "412 ppm", sub: "Normal", trend: "→ sabit", valColor: "#86efac", bg: "#111113", border: "rgba(255,255,255,0.07)" },
+                        { Ikon: Sun, label: "UV İndeks", val: "3.2", sub: "Orta", trend: "↑ artıyor", valColor: "#fde047", bg: "rgba(234,179,8,0.06)", border: "rgba(234,179,8,0.15)" },
                       ].map((s) => (
                         <div key={s.label} className="rounded-2xl p-3.5" style={{ background: s.bg, border: `1px solid ${s.border}` }}>
                           <div className="flex items-center justify-between mb-1.5">
-                            <span className="text-sm">{s.ikon}</span>
+                            <s.Ikon size={15} weight="duotone" style={{ color: s.valColor }} aria-hidden="true" />
                             <span className="text-[9px] font-mono" style={{ color: "#3f3f46" }}>{s.trend}</span>
                           </div>
                           <p className="text-[18px] font-bold leading-none" style={{ color: s.valColor }}>{s.val}</p>
@@ -351,7 +371,7 @@ export default function GunesTelemetriPage() {
                       <p className="text-[13px] font-bold text-white">Kuzey Geçidi</p>
                     </div>
                     <div className="flex items-center gap-1.5 rounded-lg px-2 py-1" style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.22)" }}>
-                      <span className="text-xs">☀️</span>
+                      <Sun size={12} weight="bold" className="text-yellow-400" aria-hidden="true" />
                       <span className="text-[10px] font-semibold text-yellow-300">Şarjta</span>
                     </div>
                   </div>
@@ -361,18 +381,22 @@ export default function GunesTelemetriPage() {
                     {/* Enerji kartı */}
                     <div className="rounded-2xl p-3.5" style={{ background: "rgba(234,179,8,0.07)", border: "1px solid rgba(234,179,8,0.22)", boxShadow: "0 0 20px rgba(234,179,8,0.05)" }}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[11px] font-semibold text-yellow-300">⚡ Enerji Durumu</span>
+                        <span className="text-[11px] font-semibold text-yellow-300 inline-flex items-center gap-1.5">
+                          <Lightning size={12} weight="bold" aria-hidden="true" /> Enerji Durumu
+                        </span>
                         <span className="text-[9px]" style={{ color: "#52525b" }}>2847m</span>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         {[
-                          { label: "☀️ Panel", val: "12.4W", color: "#fbbf24" },
-                          { label: "🔋 Batarya", val: "%78", color: "#34d399" },
-                          { label: "⚡ Tüketim", val: "0.8W", color: "#a78bfa" },
-                          { label: "⏱ Uptime", val: "247 gün", color: "#60a5fa" },
+                          { Ikon: Sun, label: "Panel", val: "12.4W", color: "#fbbf24" },
+                          { Ikon: BatteryFull, label: "Batarya", val: "%78", color: "#34d399" },
+                          { Ikon: Lightning, label: "Tüketim", val: "0.8W", color: "#a78bfa" },
+                          { Ikon: Timer, label: "Uptime", val: "247 gün", color: "#60a5fa" },
                         ].map((e) => (
                           <div key={e.label} className="rounded-xl px-2.5 py-2" style={{ background: "rgba(0,0,0,0.3)" }}>
-                            <p className="text-[9px]" style={{ color: "#52525b" }}>{e.label}</p>
+                            <p className="text-[9px] inline-flex items-center gap-1" style={{ color: "#52525b" }}>
+                              <e.Ikon size={10} weight="bold" aria-hidden="true" /> {e.label}
+                            </p>
                             <p className="text-[13px] font-bold" style={{ color: e.color }}>{e.val}</p>
                           </div>
                         ))}
@@ -386,16 +410,16 @@ export default function GunesTelemetriPage() {
                     {/* Sensör grid */}
                     <div className="grid grid-cols-2 gap-1.5">
                       {[
-                        { ikon: "🌡️", label: "Sıcaklık", val: "-2.4°C", color: "#93c5fd" },
-                        { ikon: "💧", label: "Nem", val: "%65", color: "#67e8f9" },
-                        { ikon: "💨", label: "Rüzgar", val: "34 km/h", color: "#a5b4fc" },
-                        { ikon: "🌡️", label: "Basınç", val: "758 hPa", color: "#fb923c" },
-                        { ikon: "🌿", label: "CO₂", val: "412 ppm", color: "#86efac" },
-                        { ikon: "☀️", label: "UV", val: "3.2", color: "#fde047" },
+                        { Ikon: Thermometer, label: "Sıcaklık", val: "-2.4°C", color: "#93c5fd" },
+                        { Ikon: Drop, label: "Nem", val: "%65", color: "#67e8f9" },
+                        { Ikon: Wind, label: "Rüzgar", val: "34 km/h", color: "#a5b4fc" },
+                        { Ikon: Thermometer, label: "Basınç", val: "758 hPa", color: "#fb923c" },
+                        { Ikon: Leaf, label: "CO₂", val: "412 ppm", color: "#86efac" },
+                        { Ikon: Sun, label: "UV", val: "3.2", color: "#fde047" },
                       ].map((s) => (
                         <div key={s.label} className="rounded-xl p-2.5" style={{ background: "#111113", border: "1px solid rgba(255,255,255,0.06)" }}>
                           <div className="flex items-center gap-1.5 mb-0.5">
-                            <span className="text-xs">{s.ikon}</span>
+                            <s.Ikon size={12} weight="bold" style={{ color: s.color }} aria-hidden="true" />
                             <span className="text-[9px]" style={{ color: "#52525b" }}>{s.label}</span>
                           </div>
                           <p className="text-[14px] font-bold" style={{ color: s.color }}>{s.val}</p>
@@ -429,13 +453,13 @@ export default function GunesTelemetriPage() {
                   {/* Bottom nav */}
                   <div className="flex items-center justify-around px-2 py-2 border-t" style={{ background: "#111113", borderColor: "rgba(255,255,255,0.06)" }}>
                     {[
-                      { ikon: "📡", label: "Sensör", aktif: true },
-                      { ikon: "☀️", label: "Enerji", aktif: false },
-                      { ikon: "📈", label: "Grafik", aktif: false },
-                      { ikon: "⚙", label: "Ayar", aktif: false },
+                      { Ikon: Broadcast, label: "Sensör", aktif: true },
+                      { Ikon: Sun, label: "Enerji", aktif: false },
+                      { Ikon: ChartLineUp, label: "Grafik", aktif: false },
+                      { Ikon: Gear, label: "Ayar", aktif: false },
                     ].map((n) => (
                       <div key={n.label} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl" style={n.aktif ? { background: "rgba(234,179,8,0.15)" } : {}}>
-                        <span className="text-[12px]" style={{ color: n.aktif ? "#fbbf24" : "#3f3f46" }}>{n.ikon}</span>
+                        <n.Ikon size={14} weight="bold" style={{ color: n.aktif ? "#fbbf24" : "#3f3f46" }} aria-hidden="true" />
                         <span className="text-[8px]" style={{ color: n.aktif ? "#fde68a" : "#3f3f46" }}>{n.label}</span>
                       </div>
                     ))}
@@ -457,13 +481,13 @@ export default function GunesTelemetriPage() {
           <h2 className="text-3xl font-bold mb-10">Nerede Kullanılır?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
-              { ikon: "🏔️", baslik: "Dağ ve Orman Alanları", acik: "Yüksek geçitler, orman içi noktalar, dağcılık güzergahları. Hava koşulları ve don uyarısı için." },
-              { ikon: "🌊", baslik: "Su Kaynakları & Barajlar", acik: "Nehir, dere ve baraj gözlem noktaları. Su seviyesi ve kalitesini sürekli izleyin." },
-              { ikon: "🌾", baslik: "Tarım Arazileri", acik: "Tarla kenarı hava istasyonu. Sıcaklık, nem ve toprak nemi — sulama kararlarınızı veriye dayandırın." },
-              { ikon: "🛢️", baslik: "Uzak Depo & Altyapı", acik: "Akaryakıt deposu, trafo merkezi, su kuyusu — şehirden uzak tesislerinizi ofisten izleyin." },
+              { Ikon: Mountains, baslik: "Dağ ve Orman Alanları", acik: "Yüksek geçitler, orman içi noktalar, dağcılık güzergahları. Hava koşulları ve don uyarısı için." },
+              { Ikon: Waves, baslik: "Su Kaynakları & Barajlar", acik: "Nehir, dere ve baraj gözlem noktaları. Su seviyesi ve kalitesini sürekli izleyin." },
+              { Ikon: Plant, baslik: "Tarım Arazileri", acik: "Tarla kenarı hava istasyonu. Sıcaklık, nem ve toprak nemi — sulama kararlarınızı veriye dayandırın." },
+              { Ikon: Cylinder, baslik: "Uzak Depo & Altyapı", acik: "Akaryakıt deposu, trafo merkezi, su kuyusu — şehirden uzak tesislerinizi ofisten izleyin." },
             ].map((item) => (
               <div key={item.baslik} className="flex gap-5 rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="text-3xl shrink-0">{item.ikon}</div>
+                <item.Ikon size={30} weight="duotone" className="shrink-0 text-yellow-400" aria-hidden="true" />
                 <div>
                   <h3 className="font-semibold mb-1">{item.baslik}</h3>
                   <p className="text-sm text-zinc-400">{item.acik}</p>

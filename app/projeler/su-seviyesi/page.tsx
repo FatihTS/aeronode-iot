@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  Broadcast,
+  WifiHigh,
+  BatteryFull,
+  LockKey,
+  Drop,
+  Cylinder,
+  Waves,
+  House,
+  ChartBar,
+  ChartLineUp,
+  Bell,
+  Gear,
+  MoneyWavy,
+  MapPin,
+  Scroll,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Su Seviyesi Ölçüm Cihazı",
@@ -40,7 +57,9 @@ export default function SuSeviyesiPage() {
                 <div className="relative w-20 h-20 flex items-center justify-center mb-2">
                   <div className="absolute w-20 h-20 rounded-full border border-blue-500/20" style={{ animation: "ping 2.5s ease-out infinite" }} />
                   <div className="absolute w-14 h-14 rounded-full border border-blue-500/30" style={{ animation: "ping 2.5s ease-out 0.5s infinite" }} />
-                  <div className="relative w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-lg z-10">📡</div>
+                  <div className="relative w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center z-10">
+                    <Broadcast size={18} weight="duotone" className="text-blue-300" aria-hidden="true" />
+                  </div>
                 </div>
                 <div className="w-px h-8 bg-gradient-to-b from-blue-500/40 to-transparent" />
                 <div className="relative w-52 rounded-3xl border-2 border-blue-500/30 bg-zinc-900/80 overflow-hidden" style={{ height: "280px" }}>
@@ -134,7 +153,7 @@ export default function SuSeviyesiPage() {
                   ))}
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/25 px-4 py-2">
-                  <span className="text-blue-400">📶</span>
+                  <WifiHigh size={18} weight="bold" className="text-blue-400" aria-hidden="true" />
                   <div>
                     <p className="text-sm font-bold text-blue-300 leading-none">LoRa 868 MHz</p>
                     <p className="text-[10px] text-blue-400/60 mt-0.5">2–10 km · SIM kart yok</p>
@@ -189,12 +208,12 @@ export default function SuSeviyesiPage() {
             {/* Alt bilgi satırı */}
             <div className="mt-10 pt-6 border-t border-white/[0.05] grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
-                { ikon: "📡", renk: "text-blue-400", baslik: "868 MHz LoRa", acik: "GSM'den 10× daha uzun menzil. Bina duvarlarından ve engebeli araziden geçer." },
-                { ikon: "🔋", renk: "text-yellow-400", baslik: "Ultra düşük güç", acik: "Bir LoRa paketi saniyenin binde birinde iletilir; sensör hemen uyku moduna döner. Pil yıllarca yetişir." },
-                { ikon: "🔐", renk: "text-purple-400", baslik: "AES-128 şifreli", acik: "Her paket uçtan uca şifreli gönderilir. Üçüncü taraflar veriye erişemez." },
+                { Ikon: Broadcast, renk: "text-blue-400", baslik: "868 MHz LoRa", acik: "GSM'den 10× daha uzun menzil. Bina duvarlarından ve engebeli araziden geçer." },
+                { Ikon: BatteryFull, renk: "text-yellow-400", baslik: "Ultra düşük güç", acik: "Bir LoRa paketi saniyenin binde birinde iletilir; sensör hemen uyku moduna döner. Pil yıllarca yetişir." },
+                { Ikon: LockKey, renk: "text-purple-400", baslik: "AES-128 şifreli", acik: "Her paket uçtan uca şifreli gönderilir. Üçüncü taraflar veriye erişemez." },
               ].map((item) => (
                 <div key={item.baslik} className="flex items-start gap-3">
-                  <span className={`text-xl shrink-0 mt-0.5 ${item.renk}`}>{item.ikon}</span>
+                  <item.Ikon size={22} weight="duotone" className={`shrink-0 mt-0.5 ${item.renk}`} aria-hidden="true" />
                   <div>
                     <p className="text-sm font-semibold text-white">{item.baslik}</p>
                     <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">{item.acik}</p>
@@ -249,13 +268,13 @@ export default function SuSeviyesiPage() {
                   <div className="px-2 py-3">
                     <p className="text-[9px] uppercase tracking-widest px-2 mb-2" style={{ color: "#3f3f46" }}>Su Kaynakları</p>
                     {[
-                      { ikon: "🌊", label: "Kuyu", seviye: 18, kritik: true },
-                      { ikon: "🏗️", label: "Su Deposu", seviye: 62, kritik: false },
-                      { ikon: "🌾", label: "Sulama Havuzu", seviye: 44, kritik: false },
+                      { Ikon: Drop, label: "Kuyu", seviye: 18, kritik: true },
+                      { Ikon: Cylinder, label: "Su Deposu", seviye: 62, kritik: false },
+                      { Ikon: Waves, label: "Sulama Havuzu", seviye: 44, kritik: false },
                     ].map((loc) => (
                       <div key={loc.label} className="flex items-center justify-between px-2 py-2 rounded-xl mb-0.5" style={loc.kritik ? { background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.15)" } : {}}>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs">{loc.ikon}</span>
+                          <loc.Ikon size={12} weight="bold" style={{ color: loc.kritik ? "#fca5a5" : "#a1a1aa" }} aria-hidden="true" />
                           <span className="text-[11px]" style={{ color: loc.kritik ? "#fca5a5" : "#a1a1aa" }}>{loc.label}</span>
                         </div>
                         <span className="text-[10px] font-mono font-bold" style={{ color: loc.kritik ? "#f87171" : "#34d399" }}>%{loc.seviye}</span>
@@ -267,13 +286,13 @@ export default function SuSeviyesiPage() {
                   <div className="px-2 mt-1 space-y-0.5">
                     <p className="text-[9px] uppercase tracking-widest px-2 mb-2" style={{ color: "#3f3f46" }}>Menü</p>
                     {[
-                      { ikon: "📊", label: "Genel Bakış", aktif: true },
-                      { ikon: "📈", label: "Trend & Grafik", aktif: false },
-                      { ikon: "🔔", label: "Alarmlar", aktif: false },
-                      { ikon: "⚙", label: "Ayarlar", aktif: false },
+                      { Ikon: ChartBar, label: "Genel Bakış", aktif: true },
+                      { Ikon: ChartLineUp, label: "Trend & Grafik", aktif: false },
+                      { Ikon: Bell, label: "Alarmlar", aktif: false },
+                      { Ikon: Gear, label: "Ayarlar", aktif: false },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center gap-2 px-3 py-2 rounded-xl text-[11px]" style={item.aktif ? { background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.22)", color: "#93c5fd", fontWeight: 600 } : { color: "#52525b" }}>
-                        <span>{item.ikon}</span>
+                        <item.Ikon size={13} weight="bold" aria-hidden="true" />
                         <span>{item.label}</span>
                       </div>
                     ))}
@@ -322,13 +341,13 @@ export default function SuSeviyesiPage() {
                     {/* Üç kaynak kartı */}
                     <div className="grid grid-cols-3 gap-2.5">
                       {[
-                        { ikon: "🌊", baslik: "Kuyu", seviye: 18, mevcut: "1.4m", max: "8m derinlik", trend: "↓ düşüyor", valColor: "#f87171", bg: "rgba(239,68,68,0.07)", border: "rgba(239,68,68,0.25)", bar: "linear-gradient(90deg,#ef4444,#f87171)", glow: "0 0 20px rgba(239,68,68,0.1)" },
-                        { ikon: "🏗️", baslik: "Su Deposu", seviye: 62, mevcut: "31 kL", max: "50 kL kapasite", trend: "→ sabit", valColor: "#60a5fa", bg: "rgba(59,130,246,0.07)", border: "rgba(59,130,246,0.2)", bar: "linear-gradient(90deg,#2563eb,#60a5fa)", glow: "none" },
-                        { ikon: "🌾", baslik: "Sulama Havuzu", seviye: 44, mevcut: "52.8 kL", max: "120 kL kapasite", trend: "↓ -3%/gün", valColor: "#a3e635", bg: "rgba(163,230,53,0.05)", border: "rgba(163,230,53,0.15)", bar: "linear-gradient(90deg,#65a30d,#a3e635)", glow: "none" },
+                        { Ikon: Drop, baslik: "Kuyu", seviye: 18, mevcut: "1.4m", max: "8m derinlik", trend: "↓ düşüyor", valColor: "#f87171", bg: "rgba(239,68,68,0.07)", border: "rgba(239,68,68,0.25)", bar: "linear-gradient(90deg,#ef4444,#f87171)", glow: "0 0 20px rgba(239,68,68,0.1)" },
+                        { Ikon: Cylinder, baslik: "Su Deposu", seviye: 62, mevcut: "31 kL", max: "50 kL kapasite", trend: "→ sabit", valColor: "#60a5fa", bg: "rgba(59,130,246,0.07)", border: "rgba(59,130,246,0.2)", bar: "linear-gradient(90deg,#2563eb,#60a5fa)", glow: "none" },
+                        { Ikon: Waves, baslik: "Sulama Havuzu", seviye: 44, mevcut: "52.8 kL", max: "120 kL kapasite", trend: "↓ -3%/gün", valColor: "#a3e635", bg: "rgba(163,230,53,0.05)", border: "rgba(163,230,53,0.15)", bar: "linear-gradient(90deg,#65a30d,#a3e635)", glow: "none" },
                       ].map((s) => (
                         <div key={s.baslik} className="rounded-2xl p-4" style={{ background: s.bg, border: `1px solid ${s.border}`, boxShadow: s.glow }}>
                           <div className="flex items-center justify-between mb-3">
-                            <span className="text-base">{s.ikon}</span>
+                            <s.Ikon size={16} weight="duotone" style={{ color: s.valColor }} aria-hidden="true" />
                             <span className="text-[9px] font-mono" style={{ color: s.valColor }}>{s.trend}</span>
                           </div>
                           <div className="flex items-end gap-2.5 mb-2">
@@ -437,7 +456,7 @@ export default function SuSeviyesiPage() {
                     </div>
                     <div className="relative">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.35)" }}>
-                        <span className="text-[14px]">🔔</span>
+                        <Bell size={15} weight="fill" style={{ color: "#fca5a5" }} aria-hidden="true" />
                       </div>
                       <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold text-white" style={{ background: "#ef4444", fontSize: "8px" }}>1</div>
                     </div>
@@ -460,12 +479,12 @@ export default function SuSeviyesiPage() {
                     {/* Üç mini kart */}
                     <div className="grid grid-cols-3 gap-1.5">
                       {[
-                        { ikon: "🌊", ad: "Kuyu", seviye: 18, renk: "#f87171", bar: "#ef4444" },
-                        { ikon: "🏗️", ad: "Depo", seviye: 62, renk: "#60a5fa", bar: "#3b82f6" },
-                        { ikon: "🌾", ad: "Havuz", seviye: 44, renk: "#a3e635", bar: "#84cc16" },
+                        { Ikon: Drop, ad: "Kuyu", seviye: 18, renk: "#f87171", bar: "#ef4444" },
+                        { Ikon: Cylinder, ad: "Depo", seviye: 62, renk: "#60a5fa", bar: "#3b82f6" },
+                        { Ikon: Waves, ad: "Havuz", seviye: 44, renk: "#a3e635", bar: "#84cc16" },
                       ].map((s) => (
                         <div key={s.ad} className="rounded-xl p-2 text-center" style={{ background: "#111113", border: "1px solid rgba(255,255,255,0.06)" }}>
-                          <span className="text-sm">{s.ikon}</span>
+                          <s.Ikon size={16} weight="duotone" className="mx-auto" style={{ color: s.renk }} aria-hidden="true" />
                           <p className="text-[13px] font-bold mt-0.5" style={{ color: s.renk }}>%{s.seviye}</p>
                           <p className="text-[9px] mt-0.5" style={{ color: "#52525b" }}>{s.ad}</p>
                           <div className="mt-1.5 h-1 rounded-full" style={{ background: "#1c1c1f" }}>
@@ -478,7 +497,9 @@ export default function SuSeviyesiPage() {
                     {/* Kuyu detay */}
                     <div className="rounded-2xl p-3" style={{ background: "#111113", border: "1px solid rgba(255,255,255,0.07)" }}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[11px]" style={{ color: "#52525b" }}>🌊 Kuyu — Detay</span>
+                        <span className="text-[11px] inline-flex items-center gap-1.5" style={{ color: "#52525b" }}>
+                          <Drop size={12} weight="bold" aria-hidden="true" /> Kuyu — Detay
+                        </span>
                         <span className="text-[9px] font-mono" style={{ color: "#f87171" }}>↓ Düşüyor</span>
                       </div>
                       <div className="flex items-end gap-3">
@@ -519,13 +540,13 @@ export default function SuSeviyesiPage() {
                   {/* Bottom nav */}
                   <div className="flex items-center justify-around px-2 py-2 border-t" style={{ background: "#111113", borderColor: "rgba(255,255,255,0.06)" }}>
                     {[
-                      { ikon: "📊", label: "Özet", aktif: true },
-                      { ikon: "📈", label: "Trend", aktif: false },
-                      { ikon: "🔔", label: "Alarm", aktif: false },
-                      { ikon: "⚙", label: "Ayar", aktif: false },
+                      { Ikon: ChartBar, label: "Özet", aktif: true },
+                      { Ikon: ChartLineUp, label: "Trend", aktif: false },
+                      { Ikon: Bell, label: "Alarm", aktif: false },
+                      { Ikon: Gear, label: "Ayar", aktif: false },
                     ].map((n) => (
                       <div key={n.label} className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl" style={n.aktif ? { background: "rgba(59,130,246,0.15)" } : {}}>
-                        <span className="text-[12px]" style={{ color: n.aktif ? "#60a5fa" : "#3f3f46" }}>{n.ikon}</span>
+                        <n.Ikon size={14} weight="bold" style={{ color: n.aktif ? "#60a5fa" : "#3f3f46" }} aria-hidden="true" />
                         <span className="text-[8px]" style={{ color: n.aktif ? "#93c5fd" : "#3f3f46" }}>{n.label}</span>
                       </div>
                     ))}
@@ -548,13 +569,13 @@ export default function SuSeviyesiPage() {
           <h2 className="text-3xl font-bold mb-10">Nerede Kullanılır?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { ikon: "🏗️", baslik: "Su Deposu", acik: "Evin, çiftliğin veya saha tesisinin su deposunu 7/24 izleyin. Dolmadan ve taşmadan önce haberdar olun." },
-              { ikon: "🌊", baslik: "Kuyu", acik: "Sulama mevsiminde kuyunun seviyesini takip edin. Pompa çalışırken kuyu bitmeden önce uyarı alın." },
-              { ikon: "🌾", baslik: "Sulama Havuzu", acik: "Tarla sulama rezervuarının doluluk oranını izleyin, sulama planınızı veriye göre yapın." },
-              { ikon: "🏠", baslik: "Köy & Mezra", acik: "Şehir suyuna bağlı olmayan köy ve mezralarda hayati önem taşıyan su kaynaklarını uzaktan izleyin." },
+              { Ikon: Cylinder, baslik: "Su Deposu", acik: "Evin, çiftliğin veya saha tesisinin su deposunu 7/24 izleyin. Dolmadan ve taşmadan önce haberdar olun." },
+              { Ikon: Drop, baslik: "Kuyu", acik: "Sulama mevsiminde kuyunun seviyesini takip edin. Pompa çalışırken kuyu bitmeden önce uyarı alın." },
+              { Ikon: Waves, baslik: "Sulama Havuzu", acik: "Tarla sulama rezervuarının doluluk oranını izleyin, sulama planınızı veriye göre yapın." },
+              { Ikon: House, baslik: "Köy & Mezra", acik: "Şehir suyuna bağlı olmayan köy ve mezralarda hayati önem taşıyan su kaynaklarını uzaktan izleyin." },
             ].map((item) => (
               <div key={item.baslik} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="text-3xl mb-4">{item.ikon}</div>
+                <item.Ikon size={32} weight="duotone" className="mb-4 text-blue-400" aria-hidden="true" />
                 <h3 className="font-semibold mb-2">{item.baslik}</h3>
                 <p className="text-sm text-zinc-400">{item.acik}</p>
               </div>
@@ -571,14 +592,16 @@ export default function SuSeviyesiPage() {
               <h2 className="text-3xl font-bold mb-8">Hayatınızı Nasıl Kolaylaştırır?</h2>
               <div className="space-y-5">
                 {[
-                  { ikon: "🔔", baslik: "Kritik seviye alarmı", acik: "Su %20'nin altına düştüğünde telefonunuza bildirim gelir. Kendi eşiğinizi siz belirlersiniz." },
-                  { ikon: "📊", baslik: "Tüketim takibi", acik: "Haftalık ve aylık tüketim grafikleri. Sulama maliyetlerini düşürmek için hangi günler ne kadar su gittiğini görün." },
-                  { ikon: "💸", baslik: "Su israfını önler", acik: "Depo dolunca pompa durmadıysa sistem anında uyarır. Su ve elektrik tasarrufu sağlar." },
-                  { ikon: "📍", baslik: "Uzaktan erişim", acik: "İstanbul'dayken köydeki kuyunuzu, şehirdeyken çiftliğinizdeki havuzu izleyebilirsiniz." },
-                  { ikon: "📜", baslik: "Otomatik kayıt", acik: "Tüm ölçümler bulutta saklanır. Geçmiş seviye verileri her zaman erişilebilir durumda." },
+                  { Ikon: Bell, baslik: "Kritik seviye alarmı", acik: "Su %20'nin altına düştüğünde telefonunuza bildirim gelir. Kendi eşiğinizi siz belirlersiniz." },
+                  { Ikon: ChartBar, baslik: "Tüketim takibi", acik: "Haftalık ve aylık tüketim grafikleri. Sulama maliyetlerini düşürmek için hangi günler ne kadar su gittiğini görün." },
+                  { Ikon: MoneyWavy, baslik: "Su israfını önler", acik: "Depo dolunca pompa durmadıysa sistem anında uyarır. Su ve elektrik tasarrufu sağlar." },
+                  { Ikon: MapPin, baslik: "Uzaktan erişim", acik: "İstanbul'dayken köydeki kuyunuzu, şehirdeyken çiftliğinizdeki havuzu izleyebilirsiniz." },
+                  { Ikon: Scroll, baslik: "Otomatik kayıt", acik: "Tüm ölçümler bulutta saklanır. Geçmiş seviye verileri her zaman erişilebilir durumda." },
                 ].map((item) => (
                   <div key={item.baslik} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg shrink-0">{item.ikon}</div>
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <item.Ikon size={20} weight="duotone" className="text-blue-400" aria-hidden="true" />
+                    </div>
                     <div>
                       <p className="font-semibold">{item.baslik}</p>
                       <p className="text-sm text-zinc-400 mt-0.5">{item.acik}</p>
