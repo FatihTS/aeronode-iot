@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Projeler",
+  description: "Su seviyesi ölçüm cihazı, akıllı tarım sensörü ve güneş enerjili telemetri düğümü — SIM kart gerektirmeyen, pille yıllarca çalışan LoRa tabanlı kablosuz çözümlerimiz.",
+};
 
 const projeler = [
   {

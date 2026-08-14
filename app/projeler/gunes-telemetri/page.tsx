@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Güneş Enerjili Telemetri Düğümü",
+  description: "Elektrik hattı ve telefon sinyali olmayan noktalara kurulur. Güneş enerjisiyle tamamen otonom çalışan, LoRa kablosuz telemetri düğümü.",
+};
 
 export default function GunesTelemetriPage() {
   return (

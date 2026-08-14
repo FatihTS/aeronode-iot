@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Su Seviyesi Ölçüm Cihazı",
+  description: "Kuyu kurumadan, depo taşmadan haberdar olun. SIM kart gerektirmeyen LoRa kablosuz su seviyesi sensörü — ±1 cm hassasiyet, IP68 koruma, yıllarca pil ömrü.",
+};
 
 export default function SuSeviyesiPage() {
   return (

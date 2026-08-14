@@ -11,6 +11,8 @@ const KONULAR = [
 
 export default function ContactForm() {
   const [gonderildi, setGonderildi] = useState(false);
+  const [mesajMetni, setMesajMetni] = useState("");
+  const [kopyalandi, setKopyalandi] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,11 +36,22 @@ export default function ContactForm() {
       .filter(Boolean)
       .join("\n");
 
+    setMesajMetni(`Konu: ${subject}\n\n${body}`);
     window.location.href = `mailto:aeronode.iot@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
 
     setGonderildi(true);
+    setKopyalandi(false);
+  }
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(mesajMetni);
+      setKopyalandi(true);
+    } catch {
+      setKopyalandi(false);
+    }
   }
 
   return (
@@ -129,14 +142,23 @@ export default function ContactForm() {
       </button>
 
       {gonderildi && (
-        <p className="text-sm text-emerald-400">
-          E-posta uygulamanız açıldı — mesajı göndererek talebinizi iletebilirsiniz.
-          Açılmadıysa doğrudan{" "}
-          <a href="mailto:aeronode.iot@gmail.com" className="underline">
-            aeronode.iot@gmail.com
-          </a>{" "}
-          adresine yazabilirsiniz.
-        </p>
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 space-y-2">
+          <p className="text-sm text-emerald-400">
+            E-posta uygulamanız açıldı — mesajı göndererek talebinizi iletebilirsiniz.
+            Açılmadıysa (özellikle telefonda sık görülür) mesajınızı kopyalayıp{" "}
+            <a href="mailto:aeronode.iot@gmail.com" className="underline">
+              aeronode.iot@gmail.com
+            </a>{" "}
+            adresine dilediğiniz uygulamadan yapıştırabilirsiniz.
+          </p>
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="text-sm rounded-lg border border-emerald-500/30 px-3 py-1.5 text-emerald-300 hover:bg-emerald-500/10 transition"
+          >
+            {kopyalandi ? "Kopyalandı ✓" : "Mesajı Kopyala"}
+          </button>
+        </div>
       )}
     </form>
   );

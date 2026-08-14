@@ -16,7 +16,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/logo-mark.png"
+            src="/logo-square.png"
             alt="Kargu Teknoloji amblemi"
             width={36}
             height={36}

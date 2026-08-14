@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Akıllı Tarım Sensörü",
+  description: "Ahır sıcaklığı, nem ve hayvan varlık takibi. SIM kart gerektirmeyen LoRa kablosuz sensörle gece 3'te bile bir şey olduğunda telefonunuz çalar.",
+};
 
 const sensorVerisi = [
   { ikon: "🌡️", baslik: "Sıcaklık", deger: "24.5°C", alt: "Ahır içi — Normal", durum: "normal", renk: "orange", bar: 55 },

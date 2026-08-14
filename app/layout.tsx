@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: {
     default: "Kargu Teknoloji — Kablosuz Sensör ve Telemetri Çözümleri",
     template: "%s — Kargu Teknoloji",
@@ -36,9 +37,6 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
     images: ["/hero-poster.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
   },
 };
 
