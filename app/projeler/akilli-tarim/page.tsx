@@ -104,8 +104,11 @@ export default function AkilliTarimPage() {
           {/* Mockup grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_232px] gap-6 items-start">
 
-            {/* Masaüstü browser mockup */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)" }}>
+            {/* Masaüstü browser mockup — desktop panelinin sabit genişlikli iç
+                grid'i mobilde küçülemiyor; dar ekranlarda kırpılıp bozuk
+                görünmek yerine sadece lg+ ekranlarda gösteriliyor. Mobilde
+                aynı hikaye zaten aşağıdaki telefon mockup'ıyla anlatılıyor. */}
+            <div className="hidden lg:block rounded-2xl overflow-hidden shadow-2xl" style={{ border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)" }}>
 
               {/* Browser chrome */}
               <div className="flex items-center gap-3 px-4 py-2.5 border-b" style={{ background: "#1c1c1e", borderColor: "rgba(255,255,255,0.06)" }}>

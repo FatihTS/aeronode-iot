@@ -19,18 +19,18 @@ export default function IoTLandingPage() {
           ].map((m) => (
             <div key={m.sayi} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-amber-400">{m.sayi}</div>
-              <p className="mt-1 text-sm text-zinc-500">{m.acik}</p>
+              <p className="mt-1 text-sm text-zinc-400">{m.acik}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Kimler İçin */}
-      <section className="border-b border-white/10 bg-white/[0.02]">
+      <section className="border-b border-white/10 bg-white/[0.04]">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-xl mb-12">
             <h2 className="text-3xl font-bold">Kimler Kullanıyor?</h2>
-            <p className="mt-3 text-zinc-400">
+            <p className="mt-3 text-zinc-300">
               Büyükşehirden kırsala, çiftçiden tesis müdürüne kadar — uzaktan izleme ihtiyacı olan herkes için.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function IoTLandingPage() {
               }`}>
                 <div className="text-3xl mb-4">{item.ikon}</div>
                 <h3 className="font-semibold text-white mb-2">{item.baslik}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{item.acik}</p>
+                <p className="text-sm text-zinc-300 leading-relaxed">{item.acik}</p>
               </div>
             ))}
           </div>
@@ -87,7 +87,7 @@ export default function IoTLandingPage() {
               SIM Kart Yok.<br />Aylık Fatura Yok.<br />
               <span className="text-amber-400">Sadece Sinyal.</span>
             </h2>
-            <p className="mt-5 text-zinc-400 text-lg leading-relaxed">
+            <p className="mt-5 text-zinc-300 text-lg leading-relaxed">
               Çoğu kablosuz cihaz telefonunuz gibi çalışır — SIM kart ister,
               operatöre bağlanır ve her ay ücret ödersiniz. Bizim cihazlarımız
               radyo dalgasıyla doğrudan haberleşir; hiçbir operatöre ihtiyaç duymaz.
@@ -99,7 +99,7 @@ export default function IoTLandingPage() {
               <div className="flex items-center gap-3 mb-7">
                 <div className="w-11 h-11 rounded-2xl bg-red-500/15 border border-red-500/20 flex items-center justify-center text-xl">📱</div>
                 <div>
-                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Geleneksel yöntem</p>
+                  <p className="text-xs text-zinc-400 uppercase tracking-widest">Geleneksel yöntem</p>
                   <h3 className="font-semibold text-zinc-300 mt-0.5">GSM / 4G Cihazlar</h3>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function IoTLandingPage() {
                   "Kırsal alanda çoğunlukla sinyal yok",
                   "Operatör değişirse sistem çalışmayabilir",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-zinc-400">
+                  <li key={item} className="flex items-start gap-3 text-zinc-300">
                     <span className="text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
                     <span>{item}</span>
                   </li>
@@ -126,7 +126,7 @@ export default function IoTLandingPage() {
               <div className="flex items-center gap-3 mb-7">
                 <div className="w-11 h-11 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-xl">📡</div>
                 <div>
-                  <p className="text-xs text-zinc-500 uppercase tracking-widest">Kargu yöntemi</p>
+                  <p className="text-xs text-zinc-400 uppercase tracking-widest">Kargu yöntemi</p>
                   <h3 className="font-semibold text-white mt-0.5">LoRa Kablosuz</h3>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function IoTLandingPage() {
                 <div className="text-3xl shrink-0">{item.icon}</div>
                 <div>
                   <h4 className="font-semibold mb-1">{item.title}</h4>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{item.body}</p>
+                  <p className="text-sm text-zinc-300 leading-relaxed">{item.body}</p>
                 </div>
               </div>
             ))}
@@ -166,7 +166,7 @@ export default function IoTLandingPage() {
       </section>
 
       {/* Öne Çıkan Ürün: Su Seviyesi Ölçer */}
-      <section className="border-b border-white/10 bg-white/[0.02]">
+      <section className="border-b border-white/10 bg-white/[0.04]">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1 text-sm text-blue-300 mb-8">
             ÖNE ÇIKAN ÜRÜN
@@ -178,9 +178,9 @@ export default function IoTLandingPage() {
                 Su Seviyesi
                 <span className="block text-blue-400">Ölçüm Cihazı</span>
               </h2>
-              <p className="mt-2 text-zinc-500 text-xl font-light">Kuyu kurumadan önce öğrenin.</p>
+              <p className="mt-2 text-zinc-400 text-xl font-light">Kuyu kurumadan önce öğrenin.</p>
 
-              <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
+              <p className="mt-6 text-zinc-300 text-lg leading-relaxed">
                 Çiftçilerin en büyük korkularından biri: sulama mevsiminde kuyunun
                 bitmesi. Sensörümüz deponuzun ya da kuyunuzun yanında sessizce bekler,
                 seviye düşmeye başlar başlamaz telefonunuza haber verir. SIM kart veya
@@ -198,7 +198,7 @@ export default function IoTLandingPage() {
                     <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl shrink-0">{item.icon}</div>
                     <div>
                       <p className="font-semibold text-white">{item.label}</p>
-                      <p className="text-sm text-zinc-400 mt-0.5">{item.sub}</p>
+                      <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -227,7 +227,7 @@ export default function IoTLandingPage() {
                     <div className="flex-1 border-t border-dashed border-blue-400/40" />
                     <span className="text-xs text-blue-300 font-mono bg-blue-500/20 border border-blue-500/30 px-2 py-0.5 rounded-full shrink-0">%62</span>
                   </div>
-                  <div className="absolute inset-y-0 right-3 flex flex-col justify-between py-4 text-xs text-zinc-600 font-mono">
+                  <div className="absolute inset-y-0 right-3 flex flex-col justify-between py-4 text-xs text-zinc-500 font-mono">
                     <span>%100</span><span>%75</span><span>%50</span><span>%25</span><span>%0</span>
                   </div>
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-blue-500/20 border border-blue-500/30 rounded-full px-2.5 py-1">
@@ -235,7 +235,7 @@ export default function IoTLandingPage() {
                     <span className="text-xs text-blue-300 font-medium">Canlı</span>
                   </div>
                 </div>
-                <p className="mt-4 text-sm text-zinc-600">Su deposu · Kuyu · Sulama havuzu</p>
+                <p className="mt-4 text-sm text-zinc-500">Su deposu · Kuyu · Sulama havuzu</p>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function IoTLandingPage() {
                 ].map((s) => (
                   <div key={s.baslik} className="rounded-xl bg-black/70 border border-white/10 backdrop-blur-sm p-3 text-center">
                     <div className="text-lg mb-1">{s.ikon}</div>
-                    <div className="text-xs text-zinc-500">{s.baslik}</div>
+                    <div className="text-xs text-zinc-400">{s.baslik}</div>
                     <div className="text-sm font-bold text-white">{s.deger}</div>
                   </div>
                 ))}
@@ -278,9 +278,9 @@ export default function IoTLandingPage() {
                 Akıllı Tarım
                 <span className="block text-emerald-400">Sensörü</span>
               </h2>
-              <p className="mt-2 text-zinc-500 text-xl font-light">Sabah 5&apos;te ahıra gitme.</p>
+              <p className="mt-2 text-zinc-400 text-xl font-light">Sabah 5&apos;te ahıra gitme.</p>
 
-              <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
+              <p className="mt-6 text-zinc-300 text-lg leading-relaxed">
                 Hayvancılıkta en büyük kayıplar gece olur — ısı stresi, nem artışı,
                 yerinden ayrılan hayvan. Sensörümüz sabahı beklemiyor; bir şey olduğunda
                 anında telefonunuzu çalıyor.
@@ -296,7 +296,7 @@ export default function IoTLandingPage() {
                     <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl shrink-0">{item.ikon}</div>
                     <div>
                       <p className="font-semibold text-white">{item.label}</p>
-                      <p className="text-sm text-zinc-400 mt-0.5">{item.sub}</p>
+                      <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -313,16 +313,16 @@ export default function IoTLandingPage() {
       </section>
 
       {/* Projeler */}
-      <section id="projeler" className="border-t border-white/10 bg-white/[0.02]">
+      <section id="projeler" className="border-t border-white/10 bg-white/[0.04]">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="flex items-end justify-between mb-14">
             <div className="max-w-xl">
               <h2 className="text-4xl font-bold">Tüm Projeler</h2>
-              <p className="mt-4 text-zinc-400 text-lg">
+              <p className="mt-4 text-zinc-300 text-lg">
                 Her biri gerçek bir soruna yanıt olarak tasarlandı.
               </p>
             </div>
-            <Link href="/projeler" className="hidden md:inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-amber-400 transition">
+            <Link href="/projeler" className="hidden md:inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-amber-400 transition">
               Tümünü Gör →
             </Link>
           </div>
@@ -369,8 +369,8 @@ export default function IoTLandingPage() {
                   </span>
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold">{project.title}</h3>
-                <p className="mt-3 text-zinc-400 leading-relaxed">{project.desc}</p>
-                <p className="mt-4 text-sm text-zinc-600 group-hover:text-amber-400 transition">Detayları gör →</p>
+                <p className="mt-3 text-zinc-300 leading-relaxed">{project.desc}</p>
+                <p className="mt-4 text-sm text-zinc-500 group-hover:text-amber-400 transition">Detayları gör →</p>
               </Link>
             ))}
           </div>
@@ -406,7 +406,7 @@ export default function IoTLandingPage() {
             ].map((item) => (
               <div key={item.soru} className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="font-semibold text-white mb-2">{item.soru}</h3>
-                <p className="text-zinc-400 leading-relaxed">{item.cevap}</p>
+                <p className="text-zinc-300 leading-relaxed">{item.cevap}</p>
               </div>
             ))}
           </div>
@@ -414,15 +414,15 @@ export default function IoTLandingPage() {
       </section>
 
       {/* İletişim */}
-      <section id="iletisim" className="border-t border-white/10 bg-white/[0.02]">
+      <section id="iletisim" className="border-t border-white/10 bg-white/[0.04]">
         <div className="max-w-4xl mx-auto px-6 py-24 text-center">
           <h2 className="text-4xl font-bold">Teklif Alın</h2>
-          <p className="mt-4 text-zinc-400 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-zinc-300 text-lg leading-relaxed max-w-2xl mx-auto">
             Kaç sensör gerektiğini, hangi alana kurulacağını ve bütçenizi söyleyin —
             size özel bir teklif hazırlayalım. Cevap süresi genellikle 24 saatin altındadır.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto text-sm text-zinc-400">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto text-sm text-zinc-300">
             {[
               { ikon: "📍", text: "Türkiye geneli kurulum" },
               { ikon: "⚡", text: "24 saat içi yanıt" },
