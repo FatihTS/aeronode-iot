@@ -13,22 +13,29 @@ import {
   Thermometer,
   Eye,
   Bell,
-  MapPin,
-  Lightning,
-  Wrench,
   Check,
   X,
+  Cpu,
+  Plug,
 } from "@phosphor-icons/react/dist/ssr";
+import Hero from "./components/Hero";
 import EagleEyeHero from "./components/EagleEyeHero";
+import Section from "./components/Section";
+import UseCaseGrid from "./components/UseCaseGrid";
+import PlatformDiagram from "./components/PlatformDiagram";
+import ProductShowcase from "./components/ProductShowcase";
+import TechnologyCapabilities from "./components/TechnologyCapabilities";
+import EngineeringPipeline from "./components/EngineeringPipeline";
+import SahadaKanitlaniyor from "./components/SahadaKanitlaniyor";
+import CTASection from "./components/CTASection";
 
-export default function IoTLandingPage() {
+export default function KarguLandingPage() {
   return (
-    <div className="relative min-h-dvh bg-black/65 text-white">
-
-      <EagleEyeHero />
+    <div className="relative min-h-dvh bg-ink/70 text-fg">
+      <Hero />
 
       {/* Metrikler */}
-      <section className="border-b border-white/10">
+      <section className="border-b border-line">
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { sayi: "10 km", acik: "Açık alanda sinyal menzili" },
@@ -37,217 +44,137 @@ export default function IoTLandingPage() {
             { sayi: "0 ₺", acik: "Aylık abonelik ücreti" },
           ].map((m) => (
             <div key={m.sayi} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-amber-400">{m.sayi}</div>
-              <p className="mt-1 text-sm text-zinc-400">{m.acik}</p>
+              <div className="text-3xl md:text-4xl font-bold text-accent">{m.sayi}</div>
+              <p className="mt-1 text-sm text-fg-muted">{m.acik}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Kimler İçin */}
-      <section className="border-b border-white/10 bg-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="max-w-xl mb-12">
-            <h2 className="text-3xl font-bold">Kimler Kullanıyor?</h2>
-            <p className="mt-3 text-zinc-300">
-              Büyükşehirden kırsala, çiftçiden tesis müdürüne kadar — uzaktan izleme ihtiyacı olan herkes için.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                Ikon: Cow,
-                baslik: "Çiftçiler",
-                acik: "Büyükbaş, küçükbaş ve kümes hayvanlarını ahırdan çıkmadan izleyin. Sıcaklık, nem ve varlık takibi tek cihazda.",
-                renk: "emerald",
-              },
-              {
-                Ikon: Drop,
-                baslik: "Su Yönetimi",
-                acik: "Tarla sulaması, kuyu seviyesi ve depo takibi. Su bitmeden önce haberdar olun, israfı önleyin.",
-                renk: "blue",
-              },
-              {
-                Ikon: Mountains,
-                baslik: "Uzak Tesisler",
-                acik: "Elektrik hattı veya telefon sinyali olmayan noktalarda güneş enerjili sensörlerle kesintisiz izleme.",
-                renk: "yellow",
-              },
-              {
-                Ikon: Factory,
-                baslik: "Küçük İşletmeler",
-                acik: "Sera, ahşap imalathane, soğuk hava deposu — sıcaklık ve nem kritik olan her ortam için.",
-                renk: "purple",
-              },
-            ].map((item) => (
-              <div key={item.baslik} className={`rounded-2xl border p-6 ${
-                item.renk === "emerald" ? "border-emerald-500/20 bg-emerald-500/5" :
-                item.renk === "blue" ? "border-blue-500/20 bg-blue-500/5" :
-                item.renk === "yellow" ? "border-yellow-500/20 bg-yellow-500/5" :
-                "border-purple-500/20 bg-purple-500/5"
-              }`}>
-                <item.Ikon
-                  size={32}
-                  weight="duotone"
-                  className={`mb-4 ${
-                    item.renk === "emerald" ? "text-emerald-400" :
-                    item.renk === "blue" ? "text-blue-400" :
-                    item.renk === "yellow" ? "text-yellow-400" :
-                    "text-purple-400"
-                  }`}
-                  aria-hidden="true"
-                />
-                <h3 className="font-semibold text-white mb-2">{item.baslik}</h3>
-                <p className="text-sm text-zinc-300 leading-relaxed">{item.acik}</p>
+      {/* Platform Architecture */}
+      <Section
+        eyebrow="PLATFORM MİMARİSİ"
+        title="Sensörden Uygulamaya Tek Platform"
+        intro="Kargu, sahadaki sensörden ekranınızdaki uygulamaya kadar tüm zinciri kendi tasarlar — üçüncü taraf donanım ve dağınık entegrasyon yok."
+        headerAlign="center"
+      >
+        <PlatformDiagram />
+      </Section>
+
+      {/* Nasıl Çalışır — SIM'siz RF haberleşme, low-power tasarım */}
+      <Section
+        eyebrow="NASIL ÇALIŞIR?"
+        title={
+          <>
+            SIM Kart Yok. Aylık Fatura Yok.
+            <br />
+            <span className="text-accent">Sadece Sinyal.</span>
+          </>
+        }
+        intro="Çoğu kablosuz cihaz telefonunuz gibi çalışır — SIM kart ister, operatöre bağlanır ve her ay ücret ödersiniz. Kargu cihazları radyo dalgasıyla doğrudan haberleşir; hiçbir operatöre ihtiyaç duymaz."
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+          <div className="rounded-3xl border border-line bg-surface p-8">
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-11 h-11 rounded-2xl bg-white/5 border border-line flex items-center justify-center">
+                <DeviceMobile size={22} weight="duotone" className="text-fg-muted" aria-hidden="true" />
               </div>
-            ))}
+              <div>
+                <p className="text-xs text-fg-muted uppercase tracking-widest">Geleneksel yöntem</p>
+                <h3 className="font-semibold text-fg mt-0.5">GSM / 4G Cihazlar</h3>
+              </div>
+            </div>
+            <ul className="space-y-3.5">
+              {[
+                "SIM kart gerektirir — tıpkı telefonunuz gibi",
+                "Aylık operatör abonelik ücreti",
+                "Pil günler içinde biter",
+                "Kırsal alanda çoğunlukla sinyal yok",
+                "Operatör değişirse sistem çalışmayabilir",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-fg-muted">
+                  <X size={16} weight="bold" className="text-red-400 shrink-0 mt-1" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-3xl border border-accent/30 bg-accent/5 p-8 relative overflow-hidden">
+            <div className="absolute top-5 right-5 rounded-full bg-accent/20 px-3 py-1 text-xs text-accent font-semibold tracking-wide">
+              TEKNOLOJİMİZ
+            </div>
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-11 h-11 rounded-2xl bg-accent/15 border border-accent/30 flex items-center justify-center">
+                <Broadcast size={22} weight="duotone" className="text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-xs text-fg-muted uppercase tracking-widest">Kargu yöntemi</p>
+                <h3 className="font-semibold text-fg mt-0.5">LoRa Kablosuz</h3>
+              </div>
+            </div>
+            <ul className="space-y-3.5">
+              {[
+                "SIM kart yok — hiçbir operatöre bağımlı değil",
+                "Hiçbir zaman aylık ücret yok",
+                "Pil günler değil yıllarca dayanır",
+                "Açık alanda 10 km'ye kadar çalışır",
+                "Kurulumdan sonra bakım gerektirmez",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-fg">
+                  <Check size={16} weight="bold" className="text-accent shrink-0 mt-1" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
 
-      {/* Nasıl Çalışır */}
-      <section id="nasil-calisir" className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-2xl mb-16">
-            <div className="inline-flex items-center rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1 text-sm text-cyan-300 mb-5">
-              NASIL ÇALIŞIR?
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            { Icon: BatteryFull, title: "Tek Pille 5 Yıla Kadar", body: "Sensörlerimiz o kadar az güç tüketir ki pili bir kez takarsınız — sonra yıllarca unutursunuz. Düşük güç tasarımı sayesinde AA pil 5 yıla kadar yetebilir." },
+            { Icon: WifiHigh, title: "Sinyal Olmayan Yere de Gider", body: "LoRa radyo sinyali duvarları, tarlaları ve tepeleri aşar. Türkiye'nin dağlık ve kırsal bölgelerinde mobil şebeke olmasa da çalışır." },
+            { Icon: MoneyWavy, title: "Bir Kere Al, Sürekli Kullan", body: "Cihazı satın aldıktan sonra ek bir ödeme yoktur. SIM kart yok, veri paketi yok, ay sonunda sürpriz fatura yok." },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-line bg-surface p-6 flex gap-4 hover:border-accent/30 transition">
+              <item.Icon size={28} weight="duotone" className="text-accent shrink-0" aria-hidden="true" />
+              <div>
+                <h4 className="font-semibold text-fg mb-1">{item.title}</h4>
+                <p className="text-sm text-fg-muted leading-relaxed">{item.body}</p>
+              </div>
             </div>
-            <h2 className="text-4xl font-bold leading-snug">
-              SIM Kart Yok.<br />Aylık Fatura Yok.<br />
-              <span className="text-amber-400">Sadece Sinyal.</span>
-            </h2>
-            <p className="mt-5 text-zinc-300 text-lg leading-relaxed">
-              Çoğu kablosuz cihaz telefonunuz gibi çalışır — SIM kart ister,
-              operatöre bağlanır ve her ay ücret ödersiniz. Bizim cihazlarımız
-              radyo dalgasıyla doğrudan haberleşir; hiçbir operatöre ihtiyaç duymaz.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-            <div className="rounded-3xl border border-red-500/20 bg-red-500/5 p-8">
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-11 h-11 rounded-2xl bg-red-500/15 border border-red-500/20 flex items-center justify-center">
-                  <DeviceMobile size={22} weight="duotone" className="text-red-400" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-zinc-400 uppercase tracking-widest">Geleneksel yöntem</p>
-                  <h3 className="font-semibold text-zinc-300 mt-0.5">GSM / 4G Cihazlar</h3>
-                </div>
-              </div>
-              <ul className="space-y-3.5">
-                {[
-                  "SIM kart gerektirir — tıpkı telefonunuz gibi",
-                  "Aylık operatör abonelik ücreti",
-                  "Pil günler içinde biter",
-                  "Kırsal alanda çoğunlukla sinyal yok",
-                  "Operatör değişirse sistem çalışmayabilir",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-zinc-300">
-                    <X size={16} weight="bold" className="text-red-400 shrink-0 mt-1" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-3xl border border-amber-400/30 bg-amber-400/5 p-8 relative overflow-hidden">
-              <div className="absolute top-5 right-5 rounded-full bg-amber-400/20 px-3 py-1 text-xs text-amber-400 font-semibold tracking-wide">
-                TEKNOLOJİMİZ
-              </div>
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-11 h-11 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center">
-                  <Broadcast size={22} weight="duotone" className="text-amber-400" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-zinc-400 uppercase tracking-widest">Kargu yöntemi</p>
-                  <h3 className="font-semibold text-white mt-0.5">LoRa Kablosuz</h3>
-                </div>
-              </div>
-              <ul className="space-y-3.5">
-                {[
-                  "SIM kart yok — hiçbir operatöre bağımlı değil",
-                  "Hiçbir zaman aylık ücret yok",
-                  "Pil günler değil yıllarca dayanır",
-                  "Açık alanda 10 km'ye kadar çalışır",
-                  "Kurulumdan sonra bakım gerektirmez",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-zinc-200">
-                    <Check size={16} weight="bold" className="text-amber-400 shrink-0 mt-1" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { Icon: BatteryFull, title: "Tek Pille 5 Yıla Kadar", body: "Sensörlerimiz o kadar az güç tüketir ki pili bir kez takarsınız — sonra yıllarca unutursunuz. Düşük güç tasarımı sayesinde AA pil 5 yıla kadar yetebilir." },
-              { Icon: WifiHigh, title: "Sinyal Olmayan Yere de Gider", body: "LoRa radyo sinyali duvarları, tarlaları ve tepeleri aşar. Türkiye'nin dağlık ve kırsal bölgelerinde mobil şebeke olmasa da çalışır." },
-              { Icon: MoneyWavy, title: "Bir Kere Al, Sürekli Kullan", body: "Cihazı satın aldıktan sonra ek bir ödeme yoktur. SIM kart yok, veri paketi yok, ay sonunda sürpriz fatura yok." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex gap-4 hover:border-amber-400/30 transition">
-                <item.Icon size={28} weight="duotone" className="text-amber-400 shrink-0" aria-hidden="true" />
-                <div>
-                  <h4 className="font-semibold mb-1">{item.title}</h4>
-                  <p className="text-sm text-zinc-300 leading-relaxed">{item.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Öne Çıkan Ürün: Su Seviyesi Ölçer */}
-      <section className="border-b border-white/10 bg-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1 text-sm text-blue-300 mb-8">
-            ÖNE ÇIKAN ÜRÜN
+      {/* Ürünler */}
+      <div id="urunler" className="scroll-mt-16">
+        <div className="border-b border-line bg-white/[0.03]">
+          <div className="max-w-7xl mx-auto px-6 pt-20">
+            <div className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-1 text-sm text-accent">
+              ÜRÜNLER
+            </div>
+            <h2 className="mt-5 text-3xl md:text-4xl font-bold max-w-2xl">Sensor Nodes, Gateways, Telemetry Systems</h2>
+            <p className="mt-4 text-fg-muted text-lg max-w-2xl">Aynı platform, farklı sahalar için farklı yapılandırmalar.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Su Seviyesi
-                <span className="block text-blue-400">Ölçüm Cihazı</span>
-              </h2>
-              <p className="mt-2 text-zinc-400 text-xl font-light">Kuyu kurumadan önce öğrenin.</p>
-
-              <p className="mt-6 text-zinc-300 text-lg leading-relaxed">
-                Çiftçilerin en büyük korkularından biri: sulama mevsiminde kuyunun
-                bitmesi. Sensörümüz deponuzun ya da kuyunuzun yanında sessizce bekler,
-                seviye düşmeye başlar başlamaz telefonunuza haber verir. SIM kart veya
-                internet aboneliği gerektirmez.
-              </p>
-
-              <div className="mt-10 space-y-5">
-                {[
-                  { Icon: BatteryFull, label: "Çok yıllık pil ömrü", sub: "Pil değiştirmeden yıllarca çalışır. Bakım için uzağa gitmenize gerek yok." },
-                  { Icon: Broadcast, label: "LoRa kablosuz — SIM kart yok", sub: "Telefon sinyali olmayan tarlalarda, çiftliklerde ve dağlık bölgelerde çalışır." },
-                  { Icon: Drop, label: "Sürekli seviye ölçümü", sub: "Her birkaç dakikada bir seviyeyi ölçer, veriler telefonunuza iletilir." },
-                  { Icon: Bell, label: "Kritik seviye alarmı", sub: "Su %20'nin altına düştüğünde — veya siz hangi eşiği belirlediyseniz — anında bildirim alırsınız." },
-                ].map((item) => (
-                  <div key={item.label} className="flex gap-4 items-start">
-                    <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                      <item.Icon size={22} weight="duotone" className="text-blue-400" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white">{item.label}</p>
-                      <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-10">
-                <Link href="/projeler/su-seviyesi" className="inline-flex items-center gap-2 rounded-2xl bg-blue-500 px-6 py-3 text-white font-semibold hover:bg-blue-400 transition">
-                  Tüm Özellikleri Gör →
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <div className="relative flex flex-col items-center">
+          <ProductShowcase
+            eyebrow="SENSOR NODE"
+            eyebrowColorClass="border-blue-400/30 bg-blue-400/10 text-blue-300"
+            title={<>Su Seviyesi<span className="block text-blue-400">Ölçüm Cihazı</span></>}
+            tagline="Kuyu kurumadan önce öğrenin."
+            description="Çiftçilerin en büyük korkularından biri: sulama mevsiminde kuyunun bitmesi. Sensörümüz deponuzun ya da kuyunuzun yanında sessizce bekler, seviye düşmeye başlar başlamaz telefonunuza haber verir. SIM kart veya internet aboneliği gerektirmez."
+            accentClass="text-blue-400"
+            href="/projeler/su-seviyesi"
+            ctaLabel="Tüm Özellikleri Gör"
+            features={[
+              { Icon: BatteryFull, label: "Çok yıllık pil ömrü", sub: "Pil değiştirmeden yıllarca çalışır. Bakım için uzağa gitmenize gerek yok." },
+              { Icon: Broadcast, label: "LoRa kablosuz — SIM kart yok", sub: "Telefon sinyali olmayan tarlalarda, çiftliklerde ve dağlık bölgelerde çalışır." },
+              { Icon: Drop, label: "Sürekli seviye ölçümü", sub: "Her birkaç dakikada bir seviyeyi ölçer, veriler telefonunuza iletilir." },
+              { Icon: Bell, label: "Kritik seviye alarmı", sub: "Su %20'nin altına düştüğünde — veya siz hangi eşiği belirlediyseniz — anında bildirim alırsınız." },
+            ]}
+            visual={
+              <div className="flex flex-col items-center">
                 <div className="relative w-20 h-20 flex items-center justify-center mb-2">
                   <div className="absolute w-20 h-20 rounded-full border border-blue-500/20" style={{ animation: "ping 2.5s ease-out infinite" }} />
                   <div className="absolute w-14 h-14 rounded-full border border-blue-500/30" style={{ animation: "ping 2.5s ease-out 0.5s infinite" }} />
@@ -256,7 +183,7 @@ export default function IoTLandingPage() {
                   </div>
                 </div>
                 <div className="w-px h-8 bg-gradient-to-b from-blue-500/40 to-transparent" />
-                <div className="relative w-52 rounded-3xl border-2 border-blue-500/30 bg-zinc-900/80 overflow-hidden" style={{ height: "280px" }}>
+                <div className="relative w-52 rounded-3xl border-2 border-blue-500/30 bg-surface overflow-hidden" style={{ height: "280px" }}>
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-700/60 to-blue-400/20" style={{ height: "62%" }}>
                     <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-blue-300/30 to-transparent" />
                   </div>
@@ -264,7 +191,7 @@ export default function IoTLandingPage() {
                     <div className="flex-1 border-t border-dashed border-blue-400/40" />
                     <span className="text-xs text-blue-300 font-mono bg-blue-500/20 border border-blue-500/30 px-2 py-0.5 rounded-full shrink-0">%62</span>
                   </div>
-                  <div className="absolute inset-y-0 right-3 flex flex-col justify-between py-4 text-xs text-zinc-500 font-mono">
+                  <div className="absolute inset-y-0 right-3 flex flex-col justify-between py-4 text-xs text-fg-muted/70 font-mono">
                     <span>%100</span><span>%75</span><span>%50</span><span>%25</span><span>%0</span>
                   </div>
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-blue-500/20 border border-blue-500/30 rounded-full px-2.5 py-1">
@@ -272,176 +199,151 @@ export default function IoTLandingPage() {
                     <span className="text-xs text-blue-300 font-medium">Canlı</span>
                   </div>
                 </div>
-                <p className="mt-4 text-sm text-zinc-500">Su deposu · Kuyu · Sulama havuzu</p>
+                <p className="mt-4 text-sm text-fg-muted">Su deposu · Kuyu · Sulama havuzu</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            }
+          />
 
-      {/* Öne Çıkan Ürün: Akıllı Tarım Sensörü */}
-      <section className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1 text-sm text-emerald-300 mb-8">
-            ÖNE ÇIKAN ÜRÜN
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative rounded-3xl overflow-hidden order-last lg:order-first" style={{ height: "420px" }}>
-              <Image
-                src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900&q=80&auto=format&fit=crop"
-                alt="Ahırda inekler"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-3">
-                {[
-                  { Ikon: Thermometer, baslik: "Sıcaklık", deger: "24.5°C" },
-                  { Ikon: Drop, baslik: "Nem", deger: "%68" },
-                  { Ikon: Eye, baslik: "Varlık", deger: "12/14" },
-                ].map((s) => (
-                  <div key={s.baslik} className="rounded-xl bg-black/70 border border-white/10 backdrop-blur-sm p-3 text-center">
-                    <s.Ikon size={20} weight="duotone" className="mx-auto mb-1 text-emerald-400" aria-hidden="true" />
-                    <div className="text-xs text-zinc-400">{s.baslik}</div>
-                    <div className="text-sm font-bold text-white">{s.deger}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Akıllı Tarım
-                <span className="block text-emerald-400">Sensörü</span>
-              </h2>
-              <p className="mt-2 text-zinc-400 text-xl font-light">Sabah 5&apos;te ahıra gitme.</p>
-
-              <p className="mt-6 text-zinc-300 text-lg leading-relaxed">
-                Hayvancılıkta en büyük kayıplar gece olur — ısı stresi, nem artışı,
-                yerinden ayrılan hayvan. Sensörümüz sabahı beklemiyor; bir şey olduğunda
-                anında telefonunuzu çalıyor.
-              </p>
-
-              <div className="mt-10 space-y-5">
-                {[
-                  { Ikon: Thermometer, label: "Sıcaklık & nem takibi", sub: "Ahır optimum aralığın dışına çıktığında anında uyarı alırsınız. Yaz kavruluğu, kış dondurucu soğuğu — her ikisi için ayrı alarm eşiği kurabilirsiniz." },
-                  { Ikon: Eye, label: "Hayvan varlık takibi", sub: "Kaç hayvan ahırda, kaçı dışarıda? Gece saatlerinde anormal hareket veya kayıp tespit edilirse hemen bildirim gelir." },
-                  { Ikon: Bell, label: "7/24 alarm sistemi", sub: "Uyku saatinizde bile sistem uyanık. Kritik bir durum oluştuğunda sizi telefonla, SMS ile veya uygulama bildirimiyle uyarır." },
-                ].map((item) => (
-                  <div key={item.label} className="flex gap-4 items-start">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                      <item.Ikon size={22} weight="duotone" className="text-emerald-400" aria-hidden="true" />
+          <ProductShowcase
+            eyebrow="SENSOR NODE"
+            eyebrowColorClass="border-emerald-400/30 bg-emerald-400/10 text-emerald-300"
+            title={<>Akıllı Tarım<span className="block text-emerald-400">Sensörü</span></>}
+            tagline="Sabah 5&apos;te ahıra gitme."
+            description="Hayvancılıkta en büyük kayıplar gece olur — ısı stresi, nem artışı, yerinden ayrılan hayvan. Sensörümüz sabahı beklemiyor; bir şey olduğunda anında telefonunuzu çalıyor."
+            accentClass="text-emerald-400"
+            href="/projeler/akilli-tarim"
+            ctaLabel="Tüm Özellikleri Gör"
+            reverse
+            features={[
+              { Icon: Thermometer, label: "Sıcaklık & nem takibi", sub: "Ahır optimum aralığın dışına çıktığında anında uyarı alırsınız. Yaz kavruluğu, kış dondurucu soğuğu — her ikisi için ayrı alarm eşiği kurabilirsiniz." },
+              { Icon: Eye, label: "Hayvan varlık takibi", sub: "Kaç hayvan ahırda, kaçı dışarıda? Gece saatlerinde anormal hareket veya kayıp tespit edilirse hemen bildirim gelir." },
+              { Icon: Bell, label: "7/24 alarm sistemi", sub: "Uyku saatinizde bile sistem uyanık. Kritik bir durum oluştuğunda sizi telefonla, SMS ile veya uygulama bildirimiyle uyarır." },
+            ]}
+            visual={
+              <div className="relative rounded-3xl overflow-hidden w-full" style={{ height: "420px" }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900&q=80&auto=format&fit=crop"
+                  alt="Ahırda inekler"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-3">
+                  {[
+                    { Ikon: Thermometer, baslik: "Sıcaklık", deger: "24.5°C" },
+                    { Ikon: Drop, baslik: "Nem", deger: "%68" },
+                    { Ikon: Eye, baslik: "Varlık", deger: "12/14" },
+                  ].map((s) => (
+                    <div key={s.baslik} className="rounded-xl bg-ink/70 border border-line backdrop-blur-sm p-3 text-center">
+                      <s.Ikon size={20} weight="duotone" className="mx-auto mb-1 text-emerald-400" aria-hidden="true" />
+                      <div className="text-xs text-fg-muted">{s.baslik}</div>
+                      <div className="text-sm font-bold text-fg">{s.deger}</div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-white">{item.label}</p>
-                      <p className="text-sm text-zinc-300 mt-0.5">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-10">
-                <Link href="/projeler/akilli-tarim" className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3 text-black font-semibold hover:bg-emerald-400 transition">
-                  Tüm Özellikleri Gör →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projeler */}
-      <section id="projeler" className="border-t border-white/10 bg-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="flex items-end justify-between mb-14">
-            <div className="max-w-xl">
-              <h2 className="text-4xl font-bold">Tüm Projeler</h2>
-              <p className="mt-4 text-zinc-300 text-lg">
-                Her biri gerçek bir soruna yanıt olarak tasarlandı.
-              </p>
-            </div>
-            <Link href="/projeler" className="hidden md:inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-amber-400 transition">
-              Tümünü Gör →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {[
-              {
-                slug: "su-seviyesi",
-                title: "Su Seviyesi Ölçüm Cihazı",
-                tag: "Su Yönetimi",
-                tagColor: "blue",
-                desc: "Kuyu kurumadan, depo taşmadan haberdar olun. Ultrasonik ölçüm, ±1 cm hassasiyet, IP68 koruma.",
-                gradient: "from-blue-500/20 to-cyan-500/10",
-              },
-              {
-                slug: "akilli-tarim",
-                title: "Akıllı Tarım Sensörü",
-                tag: "Hayvancılık",
-                tagColor: "green",
-                desc: "Ahır sıcaklığı, nem ve hayvan varlık takibi. Gece 3'te bile bir şey olduğunda telefonunuz çalışır.",
-                gradient: "from-emerald-500/20 to-teal-500/10",
-              },
-              {
-                slug: "gunes-telemetri",
-                title: "Güneş Enerjili Telemetri Düğümü",
-                tag: "Uzak Alan",
-                tagColor: "yellow",
-                desc: "Elektrik ve telefon sinyali olmayan noktalara kurulur. Güneş enerjisiyle tamamen otonom çalışır.",
-                gradient: "from-yellow-500/20 to-orange-500/10",
-              },
-            ].map((project) => (
-              <Link
-                key={project.title}
-                href={`/projeler/${project.slug}`}
-                className="group rounded-3xl border border-white/10 bg-black/40 p-8 hover:border-white/20 transition block"
-              >
-                <div className={`h-44 rounded-2xl bg-gradient-to-br ${project.gradient} border border-white/10 flex items-end p-4`}>
-                  <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                    project.tagColor === "blue" ? "bg-blue-500/20 text-blue-300 border border-blue-500/30" :
-                    project.tagColor === "green" ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" :
-                    "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30"
-                  }`}>
-                    {project.tag}
-                  </span>
+                  ))}
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold">{project.title}</h3>
-                <p className="mt-3 text-zinc-300 leading-relaxed">{project.desc}</p>
-                <p className="mt-4 text-sm text-zinc-500 group-hover:text-amber-400 transition">Detayları gör →</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+              </div>
+            }
+          />
 
-      {/* Referanslar — henüz yayınlanacak gerçek müşteri geri bildirimi
-          olmadığı için sahte yorum/isim uydurmak yerine dürüst, davetkar
-          bir "sahada kanıtlanıyor" bölümü. Gerçek referanslar geldikçe
-          burası testimonial kartlarıyla değiştirilebilir. */}
-      <section className="border-t border-white/10 bg-white/[0.04]">
-        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <div className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1 text-sm text-amber-300 mb-6">
-            SAHADA KANITLANIYOR
-          </div>
-          <h2 className="text-3xl font-bold">İlk Kurulumlarımız Yolda</h2>
-          <p className="mt-4 text-zinc-300 text-lg leading-relaxed">
-            Cihazlarımız laboratuvar öncesinde gerçek ahırda, tarlada ve kuyu başında test edildi.
-            Sahadaki ilk müşterilerimizden gelen geri bildirimleri önümüzdeki dönemde burada paylaşacağız.
-          </p>
-          <div className="mt-8">
-            <Link href="/iletisim" className="inline-flex items-center gap-2 rounded-2xl border border-amber-400/30 px-6 py-3 text-amber-300 font-semibold hover:bg-amber-400/10 transition">
-              İlk Referans Siz Olun →
-            </Link>
-          </div>
+          <div className="border-t border-line" />
+          <ProductShowcase
+            eyebrow="TELEMETRY SYSTEM"
+            eyebrowColorClass="border-yellow-400/30 bg-yellow-400/10 text-yellow-300"
+            title={<>Güneş Enerjili<span className="block text-yellow-400">Telemetri Düğümü</span></>}
+            tagline="Elektrik direği olmayan yerler için."
+            description="Elektrik direği yok, telefon sinyali yok, ama izleme ihtiyacı var. Güneş enerjili sistemimiz böyle noktalara kurulur ve kurulduktan sonra yıllarca kendi kendine çalışır."
+            accentClass="text-yellow-400"
+            href="/projeler/gunes-telemetri"
+            ctaLabel="Tüm Özellikleri Gör"
+            features={[
+              { Icon: Broadcast, label: "LoRa ile Haberleşir", sub: "Topladığı sensör verilerini LoRa radyosu aracılığıyla kilometrelerce ötedeki merkeze gönderir. Ne SIM kart ne internet hattı." },
+              { Icon: BatteryFull, label: "Güneş ile Beslenir", sub: "Üzerindeki küçük güneş paneli gündüz enerji toplar. Bulutlu günler için de dahili batarya gece boyunca sistemi ayakta tutar." },
+              { Icon: Mountains, label: "Bakım Gerektirmez", sub: "Kurulduktan sonra içine girmek, pil değiştirmek ya da yazılım güncellemek için bizzat gitmenize gerek yoktur." },
+            ]}
+            visual={
+              <div className="rounded-3xl border border-yellow-500/20 bg-surface p-10 flex items-center justify-center w-full" style={{ height: "280px" }}>
+                <div className="relative w-24 h-24 rounded-full bg-yellow-500/15 border border-yellow-500/40 flex items-center justify-center">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="absolute rounded-full border border-yellow-400/20"
+                      style={{ width: 96 + i * 36, height: 96 + i * 36, animation: `ping ${3 + i * 0.6}s ease-out ${i * 0.5}s infinite` }}
+                    />
+                  ))}
+                  <span className="text-xs font-mono text-yellow-300 z-10">SOLAR</span>
+                </div>
+              </div>
+            }
+          />
         </div>
-      </section>
+      </div>
+
+      {/* Teknoloji — özet, detay /teknoloji sayfasında */}
+      <Section
+        eyebrow="TEKNOLOJİ"
+        title="Sahayı Ayakta Tutan Mühendislik"
+        intro="Kargu; RF haberleşme, gömülü sistemler, düşük güç elektroniği ve endüstriyel sensör arayüzleri geliştiren bir mühendislik ekibidir."
+      >
+        <TechnologyCapabilities
+          capabilities={[
+            { Icon: Broadcast, title: "RF Engineering", tagline: "868 MHz kablosuz haberleşme", points: ["LoRaWAN protokol yığını", "Açık alanda 10 km'ye kadar menzil"] },
+            { Icon: BatteryFull, title: "Ultra Low Power", tagline: "Uyku odaklı mimari", points: ["Yıllarca süren pil ömrü için güç yönetimi", "Mikro-amper seviyesinde bekleme akımı"] },
+            { Icon: Cpu, title: "Embedded Systems", tagline: "Özel gömülü yazılım", points: ["Gerçek zamanlı sensör işleme", "Sahada güncellenebilir firmware"] },
+            { Icon: Plug, title: "Industrial Interfaces", tagline: "Endüstriyel sensör arayüzleri", points: ["RS-485, SDI-12", "Analog ve dijital giriş/çıkış"] },
+          ]}
+        />
+        <div className="mt-10 text-center">
+          <Link href="/teknoloji" className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-hover transition">
+            Teknolojiyi Detaylı İncele →
+          </Link>
+        </div>
+      </Section>
+
+      {/* Uygulamalar — özet, detay /projeler sayfasında */}
+      <Section
+        tone="tinted"
+        eyebrow="UYGULAMALAR"
+        title="Aynı Platform, Farklı Sahalar"
+        intro="Büyükşehirden kırsala, çiftçiden tesis müdürüne kadar — uzaktan izleme ihtiyacı olan her saha için."
+      >
+        <UseCaseGrid
+          items={[
+            { Icon: Cow, title: "Tarım & Hayvancılık", body: "Büyükbaş, küçükbaş ve kümes hayvanlarını ahırdan çıkmadan izleyin. Sıcaklık, nem ve varlık takibi tek cihazda.", accentClass: "text-emerald-400" },
+            { Icon: Drop, title: "Su Yönetimi", body: "Tarla sulaması, kuyu seviyesi ve depo takibi. Su bitmeden önce haberdar olun, israfı önleyin.", accentClass: "text-blue-400" },
+            { Icon: Mountains, title: "Çevresel İzleme", body: "Elektrik hattı veya telefon sinyali olmayan noktalarda güneş enerjili sensörlerle kesintisiz izleme.", accentClass: "text-yellow-400" },
+            { Icon: Factory, title: "Uzak Altyapı", body: "Sera, ahşap imalathane, soğuk hava deposu — sıcaklık ve nem kritik olan her ortam için.", accentClass: "text-purple-400" },
+          ]}
+        />
+        <div className="mt-10 text-center">
+          <Link href="/projeler" className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-hover transition">
+            Tüm Uygulamaları Gör →
+          </Link>
+        </div>
+      </Section>
+
+      {/* Mühendislik — özet, detay /muhendislik sayfasında */}
+      <Section
+        eyebrow="MÜHENDİSLİK"
+        title="Baştan Sona Mühendislik"
+        intro="Kargu bir sensör satıcısı değil, sistem geliştiren bir mühendislik ekibidir — her cihaz donanımdan sahaya kendi ekibimizden geçer."
+        headerAlign="center"
+      >
+        <EngineeringPipeline />
+        <div className="mt-10 text-center">
+          <Link href="/muhendislik" className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-hover transition">
+            Mühendislik Sürecini İncele →
+          </Link>
+        </div>
+      </Section>
+
+      <EagleEyeHero />
+
+      <SahadaKanitlaniyor />
 
       {/* SSS */}
-      <section className="border-t border-white/10">
+      <section className="border-t border-line">
         <div className="max-w-4xl mx-auto px-6 py-24">
-          <h2 className="text-4xl font-bold mb-12">Sık Sorulan Sorular</h2>
+          <h2 className="text-4xl font-bold mb-12 text-fg">Sık Sorulan Sorular</h2>
           <div className="space-y-4">
             {[
               {
@@ -465,47 +367,21 @@ export default function IoTLandingPage() {
                 cevap: "Tüm cihazlarımız 2 yıl üretici garantisi kapsamındadır. Kurulum sonrası teknik destek için doğrudan bize ulaşabilirsiniz.",
               },
             ].map((item) => (
-              <div key={item.soru} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="font-semibold text-white mb-2">{item.soru}</h3>
-                <p className="text-zinc-300 leading-relaxed">{item.cevap}</p>
+              <div key={item.soru} className="rounded-2xl border border-line bg-surface p-6">
+                <h3 className="font-semibold text-fg mb-2">{item.soru}</h3>
+                <p className="text-fg-muted leading-relaxed">{item.cevap}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* İletişim */}
-      <section id="iletisim" className="border-t border-white/10 bg-white/[0.04]">
-        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-          <h2 className="text-4xl font-bold">Teklif Alın</h2>
-          <p className="mt-4 text-zinc-300 text-lg leading-relaxed max-w-2xl mx-auto">
-            Kaç sensör gerektiğini, hangi alana kurulacağını ve bütçenizi söyleyin —
-            size özel bir teklif hazırlayalım. Cevap süresi genellikle 24 saatin altındadır.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto text-sm text-zinc-300">
-            {[
-              { Ikon: MapPin, text: "Türkiye geneli kurulum" },
-              { Ikon: Lightning, text: "24 saat içi yanıt" },
-              { Ikon: Wrench, text: "Kurulum desteği dahil" },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center justify-center gap-2">
-                <item.Ikon size={16} weight="bold" className="text-amber-400" aria-hidden="true" />
-                <span>{item.text}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
-            <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-6 py-3 text-black font-semibold hover:bg-amber-300 transition">
-              Teklif Formunu Doldurun
-            </Link>
-            <a href="mailto:aeronode.iot@gmail.com" className="rounded-2xl border border-white/20 px-6 py-3 hover:bg-white/5 transition">
-              aeronode.iot@gmail.com
-            </a>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Teklif Alın"
+        body="Kaç sensör gerektiğini, hangi alana kurulacağını ve bütçenizi söyleyin — size özel bir teklif hazırlayalım. Cevap süresi genellikle 24 saatin altındadır."
+        primaryHref="/iletisim"
+        primaryLabel="Teklif Formunu Doldurun"
+      />
     </div>
   );
 }

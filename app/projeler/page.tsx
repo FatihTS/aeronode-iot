@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Plant, Drop, Sun } from "@phosphor-icons/react/dist/ssr";
+import PageHero from "../components/PageHero";
+import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Projeler",
-  description: "Su seviyesi ölçüm cihazı, akıllı tarım sensörü ve güneş enerjili telemetri düğümü — SIM kart gerektirmeyen, pille yıllarca çalışan LoRa tabanlı kablosuz çözümlerimiz.",
+  title: "Uygulamalar",
+  description: "Aynı Kargu platformu farklı sahalarda: su seviyesi ölçümü, akıllı tarım ve uzak alan izleme. SIM kart gerektirmeyen, pille yıllarca çalışan LoRa tabanlı kablosuz çözümler.",
 };
 
-const projeler = [
+const uygulamalar = [
   {
     slug: "akilli-tarim",
     baslik: "Akıllı Tarım Sensörü",
@@ -59,35 +61,28 @@ const etiketRengi: Record<string, string> = {
   yellow: "bg-yellow-500/10 text-yellow-400",
 };
 
-export default function ProjelerPage() {
+export default function UygulamalarPage() {
   return (
-    <div className="min-h-dvh bg-black/65 text-white">
+    <div className="min-h-dvh bg-ink/70 text-fg">
+      <PageHero
+        backHref="/"
+        backLabel="← Ana Sayfa"
+        eyebrow="UYGULAMALAR"
+        title="Aynı Platform, Farklı Sahalar"
+        intro="Kargu platformu — sensör, RF haberleşme ve gömülü sistem — her sahaya göre yapılandırılır. Her biri gerçek bir soruna yanıt olarak tasarlandı: SIM kart gerektirmez, aylık ücret yoktur, pille yıllarca çalışır."
+      />
 
-      {/* Başlık */}
-      <section className="border-b border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300 transition mb-8">
-            ← Ana Sayfa
-          </Link>
-          <h1 className="text-5xl font-bold">Projelerimiz</h1>
-          <p className="mt-4 text-zinc-400 text-lg max-w-2xl">
-            Her biri gerçek bir soruna yanıt olarak tasarlandı. SIM kart gerektirmez,
-            aylık ücret yoktur, pille yıllarca çalışır.
-          </p>
-        </div>
-      </section>
-
-      {/* Proje kartları */}
+      {/* Uygulama kartları */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-          {projeler.map((p) => (
+          {uygulamalar.map((p) => (
             <Link
               key={p.slug}
               href={`/projeler/${p.slug}`}
-              className="group rounded-3xl border border-white/10 bg-black/40 overflow-hidden hover:border-white/25 transition-all"
+              className="group rounded-3xl border border-line bg-surface overflow-hidden hover:border-white/25 transition-all"
             >
               {/* Görsel alan */}
-              <div className="relative h-52 border-b border-white/10 overflow-hidden">
+              <div className="relative h-52 border-b border-line overflow-hidden">
                 {p.foto ? (
                   <>
                     <Image
@@ -121,14 +116,14 @@ export default function ProjelerPage() {
 
               {/* İçerik */}
               <div className="p-8">
-                <h2 className="text-2xl font-semibold group-hover:text-white transition">{p.baslik}</h2>
-                <p className="mt-3 text-zinc-400 leading-relaxed">{p.ozet}</p>
+                <h2 className="text-2xl font-semibold text-fg group-hover:text-fg transition">{p.baslik}</h2>
+                <p className="mt-3 text-fg-muted leading-relaxed">{p.ozet}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {p.etiketler.map((e) => (
                     <span key={e} className={`text-xs px-2.5 py-1 rounded-full ${etiketRengi[p.kategoriRenk]}`}>{e}</span>
                   ))}
                 </div>
-                <div className="mt-6 text-sm text-zinc-500 group-hover:text-emerald-400 transition flex items-center gap-1">
+                <div className="mt-6 text-sm text-accent/70 group-hover:text-accent transition flex items-center gap-1">
                   Detayları gör →
                 </div>
               </div>
@@ -137,20 +132,12 @@ export default function ProjelerPage() {
         </div>
       </section>
 
-      {/* Alt CTA */}
-      <section className="border-t border-white/10 bg-white/[0.02]">
-        <div className="max-w-4xl mx-auto px-6 py-20 text-center">
-          <h2 className="text-3xl font-bold">Aradığınızı Bulamadınız mı?</h2>
-          <p className="mt-4 text-zinc-400 text-lg">
-            İhtiyacınızı anlatın — mevcut ürünlerimizi adapte eder ya da sıfırdan özel çözüm tasarlarız.
-          </p>
-          <div className="mt-8">
-            <Link href="/iletisim" className="rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition inline-block">
-              Bizimle Konuşun
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Aradığınızı Bulamadınız mı?"
+        body="İhtiyacınızı anlatın — mevcut platformumuzu adapte eder ya da sıfırdan özel çözüm tasarlarız."
+        primaryHref="/iletisim"
+        primaryLabel="Bizimle Konuşun"
+      />
     </div>
   );
 }

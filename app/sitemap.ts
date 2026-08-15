@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const sayfalar: { yol: string; oncelik: number; siklik: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { yol: "", oncelik: 1, siklik: "monthly" },
+    { yol: "/teknoloji", oncelik: 0.9, siklik: "monthly" },
+    { yol: "/muhendislik", oncelik: 0.8, siklik: "monthly" },
     { yol: "/projeler", oncelik: 0.9, siklik: "monthly" },
     { yol: "/projeler/su-seviyesi", oncelik: 0.8, siklik: "monthly" },
     { yol: "/projeler/akilli-tarim", oncelik: 0.8, siklik: "monthly" },

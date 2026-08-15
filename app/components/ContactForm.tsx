@@ -58,28 +58,28 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="ad" className="block text-sm text-zinc-400 mb-2">
-            Ad Soyad <span className="text-amber-400">*</span>
+          <label htmlFor="ad" className="block text-sm text-fg-muted mb-2">
+            Ad Soyad <span className="text-accent">*</span>
           </label>
           <input
             id="ad"
             name="ad"
             type="text"
             required
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-600 outline-none focus:border-amber-400/50 focus:bg-white/[0.07] transition"
+            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-fg-muted/50 outline-none focus:border-accent/50 focus:bg-white/[0.07] transition"
             placeholder="Adınız Soyadınız"
           />
         </div>
         <div>
-          <label htmlFor="eposta" className="block text-sm text-zinc-400 mb-2">
-            E-posta <span className="text-amber-400">*</span>
+          <label htmlFor="eposta" className="block text-sm text-fg-muted mb-2">
+            E-posta <span className="text-accent">*</span>
           </label>
           <input
             id="eposta"
             name="eposta"
             type="email"
             required
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-600 outline-none focus:border-amber-400/50 focus:bg-white/[0.07] transition"
+            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-fg-muted/50 outline-none focus:border-accent/50 focus:bg-white/[0.07] transition"
             placeholder="ornek@eposta.com"
           />
         </div>
@@ -87,32 +87,32 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="telefon" className="block text-sm text-zinc-400 mb-2">
-            Telefon <span className="text-zinc-600">(opsiyonel)</span>
+          <label htmlFor="telefon" className="block text-sm text-fg-muted mb-2">
+            Telefon <span className="text-fg-muted/50">(opsiyonel)</span>
           </label>
           <input
             id="telefon"
             name="telefon"
             type="tel"
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-600 outline-none focus:border-amber-400/50 focus:bg-white/[0.07] transition"
+            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-fg-muted/50 outline-none focus:border-accent/50 focus:bg-white/[0.07] transition"
             placeholder="05xx xxx xx xx"
           />
         </div>
         <div>
-          <label htmlFor="konu" className="block text-sm text-zinc-400 mb-2">
+          <label htmlFor="konu" className="block text-sm text-fg-muted mb-2">
             İlgilendiğiniz Ürün
           </label>
           <select
             id="konu"
             name="konu"
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-amber-400/50 focus:bg-white/[0.07] transition"
+            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent/50 focus:bg-white/[0.07] transition"
             defaultValue=""
           >
             <option value="" disabled>
               Seçiniz
             </option>
             {KONULAR.map((k) => (
-              <option key={k} value={k} className="bg-zinc-900">
+              <option key={k} value={k} className="bg-surface">
                 {k}
               </option>
             ))}
@@ -121,22 +121,22 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="mesaj" className="block text-sm text-zinc-400 mb-2">
-          Mesajınız <span className="text-amber-400">*</span>
+        <label htmlFor="mesaj" className="block text-sm text-fg-muted mb-2">
+          Mesajınız <span className="text-accent">*</span>
         </label>
         <textarea
           id="mesaj"
           name="mesaj"
           required
           rows={5}
-          className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-600 outline-none focus:border-amber-400/50 focus:bg-white/[0.07] transition resize-none"
+          className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-fg-muted/50 outline-none focus:border-accent/50 focus:bg-white/[0.07] transition resize-none"
           placeholder="Kaç sensöre ihtiyacınız var, hangi alana kurulacak, bütçeniz nedir?"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full sm:w-auto rounded-2xl bg-amber-400 px-7 py-3 text-black font-semibold hover:bg-amber-300 transition"
+        className="w-full sm:w-auto rounded-2xl bg-accent px-7 py-3 text-white font-semibold hover:bg-accent-hover transition"
       >
         Talebi Gönder
       </button>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Kullanım Şartları",
-  description: "Kargu Teknoloji web sitesi ve ürünlerinin kullanım şartları.",
+  description: "Kargu web sitesi ve ürünlerinin kullanım şartları.",
 };
 
 const bolumler = [
@@ -53,8 +53,8 @@ const bolumler = [
     baslik: "5. Fikri Mülkiyet",
     icerik: (
       <p>
-        Sitedeki logo, metin, görsel ve tasarım unsurları Kargu Teknoloji&apos;ye
-        aittir veya Kargu Teknoloji tarafından kullanım hakkı ile
+        Sitedeki logo, metin, görsel ve tasarım unsurları Kargu&apos;ya
+        aittir veya Kargu tarafından kullanım hakkı ile
         yayımlanmaktadır. Önceden yazılı izin alınmadan bu unsurlar
         çoğaltılamaz veya dağıtılamaz.
       </p>
@@ -64,7 +64,7 @@ const bolumler = [
     baslik: "6. Sorumluluğun Sınırlandırılması",
     icerik: (
       <p>
-        Site içeriği &ldquo;olduğu gibi&rdquo; sunulur. Kargu Teknoloji, sitenin
+        Site içeriği &ldquo;olduğu gibi&rdquo; sunulur. Kargu, sitenin
         kesintisiz veya hatasız çalışacağını garanti etmez; sitenin
         kullanımından doğabilecek dolaylı zararlardan sorumlu tutulamaz.
       </p>
@@ -84,16 +84,16 @@ const bolumler = [
 
 export default function KullanimSartlariPage() {
   return (
-    <div className="min-h-dvh bg-black/65 text-white">
-      <section className="border-b border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent">
+    <div className="min-h-dvh bg-ink/70 text-fg">
+      <section className="border-b border-line bg-gradient-to-br from-white/[0.03] to-transparent">
         <div className="max-w-4xl mx-auto px-6 py-20">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300 transition mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-zinc-300 transition mb-8">
             ← Ana Sayfa
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold">Kullanım Şartları</h1>
-          <p className="mt-4 text-zinc-500 text-sm">Son güncelleme: Ağustos 2026</p>
-          <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
-            Bu sayfa, Kargu Teknoloji web sitesini kullanırken geçerli olan
+          <p className="mt-4 text-fg-muted text-sm">Son güncelleme: Ağustos 2026</p>
+          <p className="mt-6 text-fg-muted text-lg leading-relaxed">
+            Bu sayfa, Kargu web sitesini kullanırken geçerli olan
             şartları açıklar.
           </p>
         </div>
@@ -103,16 +103,16 @@ export default function KullanimSartlariPage() {
         {bolumler.map((b) => (
           <div key={b.baslik}>
             <h2 className="text-2xl font-semibold mb-4">{b.baslik}</h2>
-            <div className="text-zinc-400 leading-relaxed space-y-3">{b.icerik}</div>
+            <div className="text-fg-muted leading-relaxed space-y-3">{b.icerik}</div>
           </div>
         ))}
       </section>
 
-      <section className="border-t border-white/10 bg-white/[0.02]">
+      <section className="border-t border-line bg-white/[0.02]">
         <div className="max-w-4xl mx-auto px-6 py-14 text-center">
-          <p className="text-zinc-400">
+          <p className="text-fg-muted">
             Kullanım şartları ile ilgili sorularınız için{" "}
-            <Link href="/iletisim" className="text-amber-400 hover:underline">
+            <Link href="/iletisim" className="text-accent hover:underline">
               bize ulaşın
             </Link>
             .

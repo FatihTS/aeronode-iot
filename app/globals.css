@@ -1,22 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030407;
+  --foreground: #f5f6f8;
+
+  /* Kargu design tokens — dark navy/near-black editorial palette.
+     Blue is the primary interactive accent; amber/gold is reserved for
+     the eagle emblem and its immediate surroundings only, never for
+     generic UI (buttons/links/focus rings use --color-accent). */
+  --ink: #030407;
+  --surface: #10131a;
+  --surface-hover: #161a23;
+  --line: rgba(255, 255, 255, 0.1);
+  --fg: #f5f6f8;
+  --fg-muted: #99a1af;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --emblem: #fbbf24;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-emblem: var(--emblem);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -47,6 +63,12 @@ body {
   15% { opacity: 0.7; }
   80% { opacity: 0.4; }
   100% { opacity: 0; transform: translate(var(--dx, 0), var(--dy, 0)) scale(0.9); }
+}
+
+/* Data-flow line animation for the platform/RF/engineering diagrams —
+   an SVG path with a dashed stroke "travels" along its own line. */
+@keyframes line-flow {
+  to { stroke-dashoffset: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
