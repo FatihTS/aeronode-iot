@@ -416,6 +416,28 @@ export default function IoTLandingPage() {
         </div>
       </section>
 
+      {/* Referanslar — henüz yayınlanacak gerçek müşteri geri bildirimi
+          olmadığı için sahte yorum/isim uydurmak yerine dürüst, davetkar
+          bir "sahada kanıtlanıyor" bölümü. Gerçek referanslar geldikçe
+          burası testimonial kartlarıyla değiştirilebilir. */}
+      <section className="border-t border-white/10 bg-white/[0.04]">
+        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
+          <div className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1 text-sm text-amber-300 mb-6">
+            SAHADA KANITLANIYOR
+          </div>
+          <h2 className="text-3xl font-bold">İlk Kurulumlarımız Yolda</h2>
+          <p className="mt-4 text-zinc-300 text-lg leading-relaxed">
+            Cihazlarımız laboratuvar öncesinde gerçek ahırda, tarlada ve kuyu başında test edildi.
+            Sahadaki ilk müşterilerimizden gelen geri bildirimleri önümüzdeki dönemde burada paylaşacağız.
+          </p>
+          <div className="mt-8">
+            <Link href="/iletisim" className="inline-flex items-center gap-2 rounded-2xl border border-amber-400/30 px-6 py-3 text-amber-300 font-semibold hover:bg-amber-400/10 transition">
+              İlk Referans Siz Olun →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* SSS */}
       <section className="border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6 py-24">
